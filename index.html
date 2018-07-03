@@ -9,7 +9,9 @@
 			var game = document.getElementById("game area");
 			var shapes = game.getContext("2d");
 			shapes.fillStyle = "#FF0000";
-			shapes.fillRect(0,0,150,75);
+			shapes.beginPath();
+			shapes.arc(95,50,40,0,2*Math.PI);
+			shapes.stroke();
 		</script>
 	</body>
 </html>
