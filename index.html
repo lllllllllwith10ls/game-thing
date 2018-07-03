@@ -6,11 +6,59 @@
 		<canvas id="game area" width="400" height="400" style="border:1px solid #c3c3c3;">
 		</canvas>
 		<script>
-			var game = document.getElementById("game area");
-			var shapes = game.getContext("2d");
+			let player = {
+				xPos: 200,
+				yPos: 200,
+				vX: 0,
+				vY: 0,
+			}
+			let keys = {
+				w: false,
+				
+			}
+			const theGame = {
+				canvas : document.getElementById("game area"),
+				start : function() {
+					this.canvas.width = 480;
+					this.canvas.height = 270;
+					this.context = this.canvas.getContext("2d");
+					this.interval = setInterval(updateGameArea, 20);
+					window.addEventListener('keydown', function (e) {
+							e.preventDefault();
+							keys.keys = (theGame.keys || []);
+							thGame.keys[e.keyCode] = (e.type == "keydown");
+						})
+					window.addEventListener('keyup', function (e) {
+						thGame.keys[e.keyCode] = (e.type == "keydown");
+					})
+				},
+				stop : function() {
+					clearInterval(this.interval);
+				},
+				clear : function() {
+					this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+				}
+			}
+			function updateGame() {
+				let canvas = theGame.canvas;
+				canvas.clear();
+				if (myGameArea.keys && myGameArea.keys[37]) {
+					myGamePiece.moveAngle = -1;
+				} else if (myGameArea.keys && myGameArea.keys[39]) {
+					myGamePiece.moveAngle = 1;
+				} else if (myGameArea.keys && myGameArea.keys[38]) {
+					myGamePiece.speed= 1;
+				} else if (myGameArea.keys && myGameArea.keys[40]) {
+					myGamePiece.speed= -1;
+				}
+				myGamePiece.newPos();
+				myGamePiece.update();
+			}
+			let canvas = theGame.canvas;
+			var shapes = canvas.getContext("2d");
 			shapes.fillStyle = "#FF0000";
 			shapes.beginPath();
-			shapes.arc(95,50,40,0,2*Math.PI);
+			shapes.arc(200,200,5,0,2*Math.PI);
 			shapes.stroke();
 		</script>
 	</body>
