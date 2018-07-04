@@ -1,4 +1,4 @@
-const entityUpdate = () {
+const entityUpdate = () => {
 	for(let i = 0; i < bullets.length; i++) {
 		if(bullets[i].dead !== true) {
 			if(bullets[i].xPos < 0 || bullets[i].yPos < 0 || bullets[i].xPos > 400 || bullets[i].yPos > 400) {
