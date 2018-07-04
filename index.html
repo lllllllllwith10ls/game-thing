@@ -61,19 +61,19 @@
 				}
 				if (player.xPos < 0) {
 					player.xPos = 0;
-					player.vX = -player.vX
+					player.vX = -player.vX*19/20
 				}
 				if (player.xPos > 400) {
 					player.xPos = 400;
-					player.vX = -player.vX
+					player.vX = -player.vX*19/20
 				}
 				if (player.yPos < 0) {
 					player.yPos = 0;
-					player.vY = -player.vY
+					player.vY = -player.vY*19/20
 				}
 				if (player.yPos > 400) {
 					player.yPos = 400;
-					player.vY = -player.vY
+					player.vY = -player.vY*19/20
 				}
 				player.xPos += player.vX;
 				player.yPos += player.vY;
