@@ -243,6 +243,41 @@
 							shapes.stroke();
 							shapes.closePath();
 						}
+						if(enemies[i].name === "spawner boss") {
+							var x = enemies[i].xPos;
+							var y = enemies[i].yPos;
+							enemies[i].angle = -atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos))+180;
+							var angle = enemies[i].angle;
+
+							var x1 = sin(angle)*-10+x;
+							var y1 = cos(angle)*-10+y;
+							var x2 = sin(angle)*10+x;
+							var y2 = cos(angle)*10+y;
+							var x3 = sin(angle+atan2(20,10))*(sqrt(pow(10,2)+pow(20,2)))+x;
+							var y3 = cos(angle+atan2(20,10))*(sqrt(pow(10,2)+pow(20,2)))+y;
+							var x4 = sin(angle+atan2(20,30))*(sqrt(pow(30,2)+pow(20,2)))+x;
+							var y4 = cos(angle+atan2(20,30))*(sqrt(pow(30,2)+pow(20,2)))+y;
+							var x5 = sin(angle+atan2(-20,30))*(sqrt(pow(30,2)+pow(20,2)))+x;
+							var y5 = cos(angle+atan2(-20,30))*(sqrt(pow(30,2)+pow(20,2)))+y;
+							var x6 = sin(angle+atan2(-20,-30))*(sqrt(pow(30,2)+pow(20,2)))+x;
+							var y6 = cos(angle+atan2(-20,-30))*(sqrt(pow(30,2)+pow(20,2)))+y;
+							var x7 = sin(angle+atan2(20,-30))*(sqrt(pow(30,2)+pow(20,2)))+x;
+							var y7 = cos(angle+atan2(20,-30))*(sqrt(pow(30,2)+pow(20,2)))+y;
+							var x8 = sin(angle+atan2(20,-10))*(sqrt(pow(10,2)+pow(20,2)))+x;
+							var y8 = cos(angle+atan2(20,-10))*(sqrt(pow(10,2)+pow(20,2)))+y;
+							
+							shapes.beginPath();
+							shapes.lineTo(x1,y1);
+							shapes.lineTo(x2,y2);
+							shapes.lineTo(x3,y3);
+							shapes.lineTo(x4,y4);
+							shapes.lineTo(x5,y5);
+							shapes.lineTo(x6,y6);
+							shapes.lineTo(x7,y7);
+							shapes.lineTo(x8,y8);
+							shapes.lineTo(x1,y1);
+							shapes.close();
+						}
 						playerCollision(i);
 					}
 				}
