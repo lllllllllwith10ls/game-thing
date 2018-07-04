@@ -36,8 +36,10 @@
 					this.context = this.canvas.getContext("2d");
 					this.interval = setInterval(updateGame, 20);
 					window.addEventListener("click", function (e) {
-						mouse.x = e.clientX;
-						mouse.y = e.clientY;
+						var margin = this.canvas.getBoundingClientRect();
+						
+						mouse.x = e.clientX - margin.left;
+						mouse.y = e.clientY - margin.top;
 						console.log(mouse.x + ", " + mouse.y);
 					})
 					window.addEventListener('keydown', function (e) {
