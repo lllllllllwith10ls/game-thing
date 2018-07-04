@@ -202,6 +202,44 @@
 							shapes.stroke();
 							shapes.closePath();
 						}
+						if(enemies[i].name === "big crasher") {
+							enemies[i].angle += Math.PI/30;
+							let x = enemies[i].xPos;
+							let y = enemies[i].yPos;
+							let angle = enemies[i].angle;
+							let side = 15;
+							
+							let xlength = -Math.cos(angle)*side + x;
+							let ylength = -Math.sin(angle)*side + y;
+							let xlength2 = -Math.cos(angle+1*Math.PI/3)*side + x;
+							let ylength2 = -Math.sin(angle+1*Math.PI/3)*side + y;
+							let xlength3 = -Math.cos(angle+2*Math.PI/3)*side + x;
+							let ylength3 = -Math.sin(angle+2*Math.PI/3)*side + y;
+							let xlength4 = -Math.cos(angle+3*Math.PI/3)*side + x;
+							let ylength4 = -Math.sin(angle+3*Math.PI/3)*side + y;
+							let xlength5 = -Math.cos(angle+4*Math.PI/3)*side + x;
+							let ylength5 = -Math.sin(angle+4*Math.PI/3)*side + y;
+							let xlength6 = -Math.cos(angle+5*Math.PI/3)*side + x;
+							let ylength6 = -Math.sin(angle+5*Math.PI/3)*side + y;
+							shapes.beginPath();
+							shapes.moveTo(x,y);
+							shapes.lineTo(xlength,ylength);
+							shapes.lineTo(xlength2,ylength2);
+							shapes.moveTo(x,y);
+							shapes.lineTo(xlength2,ylength2);
+							shapes.lineTo(xlength3,ylength3);
+							shapes.moveTo(x,y);
+							shapes.lineTo(xlength3,ylength3);
+							shapes.lineTo(xlength4,ylength4);
+							shapes.moveTo(x,y);
+							shapes.lineTo(xlength4,ylength4);
+							shapes.lineTo(xlength5,ylength5);
+							shapes.moveTo(x,y);
+							shapes.lineTo(xlength5,ylength5);
+							shapes.lineTo(xlength,ylength);
+							shapes.stroke();
+							shapes.closePath();
+						}
 						playerCollision(i);
 					}
 				}
