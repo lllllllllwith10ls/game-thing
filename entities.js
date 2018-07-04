@@ -176,4 +176,20 @@ class Splitter {
 		this.angle = Math.random() * 2 * Math.PI;
 	}
 };
+class SpawnerBoss {
+	constructor(x,y,vx,vy) {
+		this.name = "spawner boss";
+		this.behavior = "chaser";
+		this.xPos = x;
+		this.yPos = y;
+		this.vX = vx;
+		this.vY = vy;
+		this.dead = false;
+		this.accel = 0.001;
+		this.speed = 0.1;
+		this.health = 100;
+		this.hitbox = 30;
+		this.angle = 0;
+	}
+};
 
