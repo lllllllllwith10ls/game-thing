@@ -187,9 +187,9 @@
 				document.getElementById("lives").innerHTML = "Lives: " + player.lives;
 				document.getElementById("wave number").innerHTML = "Wave: " + wavenum;
 				if(player.lives <= 0) {
-					shapes.fillText("you died lol",175,200);
 					theGame.stop();
 					theGame.clear();
+					shapes.fillText("you died lol",175,200);
 					
 				}
 				
