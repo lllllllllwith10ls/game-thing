@@ -16,6 +16,8 @@
 				yPos: 200,
 				vX: 0,
 				vY: 0,
+				reload: 20,
+				cooldown: 0,
 			}
 			let keys = {
 				87: false,
@@ -109,15 +111,18 @@
 					player.yPos = 400;
 					player.vY = -player.vY * 4/5;
 				}
+				player.cooldown++;
 				if (mouse.down === true) {
 					window.addEventListener("mousemove", function (e) {
 						let margin = document.getElementById("game area").getBoundingClientRect();
 						mouse.x = e.clientX - margin.left;
 						mouse.y = e.clientY - margin.top;
 					})
-					
-					let angle = Math.atan2(player.xPos-mouse.x,player.yPos-mouse.y); 
-					bullets.push(new Bullet(player.xPos,player.yPos,-Math.sin(angle)*7.5,-Math.cos(angle)*7.5));
+					if(player.cooldown >= player.reload) {
+						let angle = Math.atan2(player.xPos-mouse.x,player.yPos-mouse.y); 
+						bullets.push(new Bullet(player.xPos,player.yPos,-Math.sin(angle)*7.5,-Math.cos(angle)*7.5));
+						player.cooldown = 0;
+					}
 				}
 				player.xPos += player.vX;
 				player.yPos += player.vY;
