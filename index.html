@@ -157,7 +157,7 @@
 				for(let i = 0; i < enemies.length; i++) {
 					if(enemies[i].dead !== true) {
 						if(enemies[i].name === "crasher") {
-							enemies[i].angle = atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos));
+							enemies[i].angle = Math.atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos));
 							let x = enemies[i].xPos;
 							let y = enemies[i].yPos;
 							let angle = enemies[i].angle;
