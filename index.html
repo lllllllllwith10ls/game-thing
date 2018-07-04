@@ -45,7 +45,7 @@
 						mouse.y = e.clientY - margin.top;
 						console.log(mouse.x + ", " + mouse.y);
 						let angle = Math.atan2(player.yPos-mouse.y,player.xPos-mouse.x); 
-						bullets.push(new Bullet(player.xPos,player.yPos,sin(angle)*7.5,cos(angle)*7.5));
+						bullets.push(new Bullet(player.xPos,player.yPos,Math.sin(angle)*7.5,Math.cos(angle)*7.5));
 					})
 					window.addEventListener('keydown', function (e) {
 							e.preventDefault();
