@@ -231,6 +231,7 @@
 				}
 			}
 			const wave = () => {
+				wavenum++;
 				let crashers = Math.random() * 3 + 1;
 				for(crashers; crashers > 0; crashers--) {
 					let side = Math.random() * 4 + 1;
@@ -265,7 +266,6 @@
 						}
 					}
 				}
-				wavenum++;
 				player.damage += 0.2;
 				player.reload *= 19/20;
 				if(wavenum % 5 === 0) {
