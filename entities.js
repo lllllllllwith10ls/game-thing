@@ -30,7 +30,7 @@ const entityUpdate = () => {
 			if(enemies[i].vY > enemies[i].speed) {
 				enemies[i].vY = enemies[i].speed;
 			}
-			if(enemies[i].vX < enemies[i].speed) {
+			if(enemies[i].vX > enemies[i].speed) {
 				enemies[i].vX = enemies[i].speed;
 			}
 			if (enemies[i].xPos < 0) {
