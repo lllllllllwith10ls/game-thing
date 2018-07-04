@@ -18,9 +18,10 @@
 				yPos: 200,
 				vX: 0,
 				vY: 0,
-				reload: 20,
+				reload: 10,
 				cooldown: 0,
-				damage: 1
+				damage: 1,
+				lives: 3
 			}
 			let keys = {
 				87: false,
@@ -197,13 +198,15 @@
 				) {
 					enemies[e].health -= 5;
 					player.lives--;
+					if(enemies[e].health <= 0) {
+						enemies[e].dead = true;
+					}
 				}
 			}
 			const wave = () => {
 				let crashers = Math.random() * 3 + 1;
 				for(crashers; crashers > 0; crashers--) {
 					let side = Math.random() * 4 + 1;
-					console.log(side);
 					if (side >= 1 && side < 2) {
 						enemies.push(new Crasher(0,Math.random()*400,0,0));
 					}
