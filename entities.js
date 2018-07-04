@@ -138,7 +138,7 @@ class Crasher {
 		this.vY = vy;
 		this.dead = false;
 		this.accel = 0.1;
-		this.speed = 3;
+		this.speed = 2;
 		this.health = 2;
 		this.hitbox = 10;
 		this.angle = 0;
