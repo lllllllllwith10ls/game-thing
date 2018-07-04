@@ -48,13 +48,32 @@
 			const updateGame = () => {
 				theGame.clear();
 				if (keys[87]) {
-					player.vY = -1;
-				} else if (keys[65]) {
-					player.vX = -1;
-				} else if (keys[83]) {
-					player.vY = 1;
-				} else if (keys[68]) {
-					player.vX = 1;
+					player.vY += -1;
+				} 
+				if (keys[65]) {
+					player.vX += -1;
+				} 
+				if (keys[83]) {
+					player.vY += 1;
+				}
+				if (keys[68]) {
+					player.vX += 1;
+				}
+				if (player.xPos < 0) {
+					player.xPos = 0;
+					player.vX = -player.vX
+				}
+				if (player.xPos > 400) {
+					player.xPos = 400;
+					player.vX = -player.vX
+				}
+				if (player.yPos < 0) {
+					player.yPos = 0;
+					player.vY = -player.vY
+				}
+				if (player.yPos > 400) {
+					player.yPos = 400;
+					player.vY = -player.vY
 				}
 				player.xPos += player.vX;
 				player.yPos += player.vY;
