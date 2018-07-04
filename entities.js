@@ -71,6 +71,12 @@ const entityUpdate = () => {
 	}
 	for(var i = 0; i <= enemies.length-1; i++) {
 		if(enemies[i].dead === true) {
+			if(enemies[i].name === "splitter") {
+				let crashers = Math.random() * 3 + 1;
+				for(crashers; crashers > 0; crashers--) {
+					enemies.push(Crasher(enemies[i].xPos+(Math.random()-0.5)*10,enemies[i].yPos+(Math.random()-0.5)*10,0,0);
+				}
+			}
 			enemies.splice(i,1);
 		}
 	}
@@ -152,6 +158,22 @@ class BigCrasher {
 		this.health = 15;
 		this.hitbox = 15;
 		this.angle = 0;
+	}
+};
+class Splitter {
+	constructor(x,y,vx,vy) {
+		this.name = "splitter";
+		this.behavior = "chaser";
+		this.xPos = x;
+		this.yPos = y;
+		this.vX = vx;
+		this.vY = vy;
+		this.dead = false;
+		this.accel = 0.05;
+		this.speed = 1;
+		this.health = 7.5;
+		this.hitbox = 10;
+		this.angle = Math.random() * 2 * Math.PI;
 	}
 };
 
