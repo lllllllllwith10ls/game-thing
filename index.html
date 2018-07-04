@@ -39,12 +39,10 @@
 					this.context = this.canvas.getContext("2d");
 					this.interval = setInterval(updateGame, 20);
 					window.addEventListener("mousedown", function (e) {
+						mouse.down = true;
 						let margin = document.getElementById("game area").getBoundingClientRect();
-						
 						mouse.x = e.clientX - margin.left;
 						mouse.y = e.clientY - margin.top;
-						let angle = Math.atan2(player.xPos-mouse.x,player.yPos-mouse.y); 
-						bullets.push(new Bullet(player.xPos,player.yPos,Math.sin(angle)*7.5,Math.cos(angle)*7.5));
 					})
 					window.addEventListener('keydown', function (e) {
 							e.preventDefault();
@@ -106,6 +104,16 @@
 				if (player.yPos > 400) {
 					player.yPos = 400;
 					player.vY = -player.vY * 4/5;
+				}
+				if (mouse.down = true) {
+					window.addEventListener("mousemove", function (e) {
+						let margin = document.getElementById("game area").getBoundingClientRect();
+						mouse.x = e.clientX - margin.left;
+						mouse.y = e.clientY - margin.top;
+					})
+					
+					let angle = Math.atan2(player.xPos-mouse.x,player.yPos-mouse.y); 
+					bullets.push(new Bullet(player.xPos,player.yPos,Math.sin(angle)*7.5,Math.cos(angle)*7.5));
 				}
 				player.xPos += player.vX;
 				player.yPos += player.vY;
