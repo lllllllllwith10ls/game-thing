@@ -84,7 +84,7 @@ const bulletCollision = (b,e) => {
 		bullets[b].yPos - bullets[b].hitbox < enemies[e].yPos + enemies[e].hitbox &&
 		bullets[b].yPos + bullets[b].hitbox > enemies[e].yPos - enemies[e].hitbox
 	) {
-		if(bullets[b].health > enemies[b].health) {
+		if(bullets[b].health > enemies[e].health) {
 			bullets[b].health -= enemies[e].health;
 			enemies[e].dead = true;
 		} else {
