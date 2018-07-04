@@ -18,6 +18,7 @@
 				vY: 0,
 				reload: 20,
 				cooldown: 0,
+				damage: 1
 			}
 			let keys = {
 				87: false,
@@ -32,6 +33,8 @@
 				
 			}
 			let bullets = [];
+			let enemies = [];
+			let waveNum = 0;
 			
 			const theGame = {
 				canvas : document.getElementById("game area"),
@@ -131,6 +134,10 @@
 				update();
 			}
 			const update = () => {
+				waveNum++;
+				if(waveNum > 50) {
+					enemies.push(new Crasher(0,0,0,0));
+				}
 				let canvas = theGame.canvas;
 				let shapes = canvas.getContext("2d");
 				shapes.fillStyle = "#FF0000";
@@ -144,6 +151,16 @@
 						shapes.arc(bullets[i].xPos,bullets[i].yPos,2.5,0,2*Math.PI);
 						shapes.stroke();
 						shapes.closePath();
+					}
+				}
+				for(let i = 0; i < enemies.length; i++) {
+					if(enemies[i].dead !== true) {
+						if(enemies[i].name === "crasher") {
+							shapes.beginPath();
+							shapes.arc(enemies[i].xPos,enemies[i].yPos,5,0,2*Math.PI);
+							shapes.stroke();
+							shapes.closePath();
+						}
 					}
 				}
 			}
