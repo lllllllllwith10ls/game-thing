@@ -44,6 +44,10 @@
 						mouse.x = e.clientX - margin.left;
 						mouse.y = e.clientY - margin.top;
 					})
+					window.addEventListener("mouseup", function (e) {
+						mouse.down = false;
+						
+					})
 					window.addEventListener('keydown', function (e) {
 							e.preventDefault();
 							keys[e.keyCode] = true;
@@ -105,7 +109,7 @@
 					player.yPos = 400;
 					player.vY = -player.vY * 4/5;
 				}
-				if (mouse.down = true) {
+				if (mouse.down === true) {
 					window.addEventListener("mousemove", function (e) {
 						let margin = document.getElementById("game area").getBoundingClientRect();
 						mouse.x = e.clientX - margin.left;
@@ -113,7 +117,7 @@
 					})
 					
 					let angle = Math.atan2(player.xPos-mouse.x,player.yPos-mouse.y); 
-					bullets.push(new Bullet(player.xPos,player.yPos,Math.sin(angle)*7.5,Math.cos(angle)*7.5));
+					bullets.push(new Bullet(player.xPos,player.yPos,-Math.sin(angle)*7.5,-Math.cos(angle)*7.5));
 				}
 				player.xPos += player.vX;
 				player.yPos += player.vY;
