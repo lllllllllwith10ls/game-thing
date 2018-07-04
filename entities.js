@@ -14,8 +14,7 @@ const entityUpdate = () => {
 			bullets.splice(i,1);
 		}
 	}
-    }
-}
+};
 
 
 
@@ -28,4 +27,4 @@ class Bullet {
 		this.dead = false;
 		this.health = 5;
 	}
-}
+};
