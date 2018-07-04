@@ -161,14 +161,14 @@
 							let x = enemies[i].xPos;
 							let y = enemies[i].yPos;
 							let angle = enemies[i].angle;
-							let side = 3;
+							let side = 5;
 							
-							let xlength = Math.cos(angle)*side + x;
-							let ylength = Math.sin(angle)*side + y;
-							let xlength2 = Math.cos(angle+2*Math.PI/3)*side + x;
-							let ylength2 = Math.sin(angle+2*Math.PI/3)*side + y;
-							let xlength3 = Math.cos(angle+4*Math.PI/3)*side + x;
-							let ylength3 = Math.sin(angle+4*Math.PI/3)*side + y;
+							let xlength = -Math.cos(angle)*side + x;
+							let ylength = -Math.sin(angle)*side + y;
+							let xlength2 = -Math.cos(angle+2*Math.PI/3)*side + x;
+							let ylength2 = -Math.sin(angle+2*Math.PI/3)*side + y;
+							let xlength3 = -Math.cos(angle+4*Math.PI/3)*side + x;
+							let ylength3 = -Math.sin(angle+4*Math.PI/3)*side + y;
 							shapes.beginPath();
 							shapes.moveTo(xlength,ylength);
 							shapes.lineTo(xlength2,ylength2);
