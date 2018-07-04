@@ -23,6 +23,11 @@
 				68: false
 				
 			}
+			let mouse = {
+				x: 0,
+				y: 0
+				
+			}
 			const theGame = {
 				canvas : document.getElementById("game area"),
 				start : function() {
@@ -30,6 +35,11 @@
 					this.canvas.height = 400;
 					this.context = this.canvas.getContext("2d");
 					this.interval = setInterval(updateGame, 20);
+					window.addEventListener("click", function (e) {
+						mouse.x = e.clientX;
+						mouse.y = e.clientY;
+						console.log(mouse.x + ", " + mouse.y);
+					})
 					window.addEventListener('keydown', function (e) {
 							e.preventDefault();
 							keys[e.keyCode] = true;
