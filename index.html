@@ -36,7 +36,7 @@
 					this.context = this.canvas.getContext("2d");
 					this.interval = setInterval(updateGame, 20);
 					window.addEventListener("click", function (e) {
-						let margin = this.context.getBoundingClientRect();
+						let margin = document.getElementById("game area").getBoundingClientRect();
 						
 						mouse.x = e.clientX - margin.left;
 						mouse.y = e.clientY - margin.top;
