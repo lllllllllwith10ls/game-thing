@@ -78,9 +78,12 @@ const entityUpdate = () => {
 };
 
 const bulletCollision = (b,e) => {
-	if((bullets[b].xPos-bullets[b].hitbox < enemies[e].xPos+enemies[e].hitbox) || (bullets[b].xPos+bullets[b].hitbox > enemies[e].xPos-enemies[e].hitbox) || (bullets[b].yPos-bullets[b].hitbox < enemies[e].yPos+enemies[e].hitbox) || (bullets[b].yPos+bullets[b].hitbox > enemies[e].yPos-enemies[e].hitbox)) {
-		
-	} else {
+	if(
+		bullets[b].xPos - bullets[b].hitbox < enemies[e].xPos + enemies[e].hitbox &&
+		bullets[b].xPos + bullets[b].hitbox > enemies[e].xPos - enemies[e].hitbox &&
+		bullets[b].yPos - bullets[b].hitbox < enemies[e].yPos + enemies[e].hitbox &&
+		bullets[b].yPos + bullets[b].hitbox > enemies[e].yPos - enemies[e].hitbox
+	) {
 		if(bullets[b].health > enemies[b].health) {
 			bullets[b].health -= enemies[e].health;
 			enemies[e].dead = true;
@@ -94,9 +97,12 @@ const bulletCollision = (b,e) => {
 	}
 }
 const enemyCollision = (e1,e2) => {
-	if((enemies[e1].xPos-enemies[e1].hitbox < enemies[e2].xPos+enemies[e2].hitbox) || (enemies[e1].xPos+enemies[e1].hitbox > enemies[e2].xPos-enemies[e2].hitbox) || (enemies[e1].yPos-enemies[e1].hitbox < enemies[e2].yPos+enemies[e2].hitbox) || (enemies[e1].yPos+enemies[e1].hitbox > enemies[e2].yPos-enemies[e2].hitbox)) {
-		
-	} else {
+	if (
+		enemies[e1].xPos - enemies[e1].hitbox < enemies[e2].xPos + enemies[e2].hitbox &&
+		enemies[e1].xPos + enemies[e1].hitbox > enemies[e2].xPos - enemies[e2].hitbox &&
+		enemies[e1].yPos - enemies[e1].hitbox < enemies[e2].yPos + enemies[e2].hitbox &&
+		enemies[e1].yPos + enemies[e1].hitbox > enemies[e2].yPos - enemies[e2].hitbox
+	) {
 		let angle = Math.atan2(enemies[e1].xPos-enemies[e2].xPos,enemies[e1].yPos-enemies[e2].yPos);
 		enemies[e1].vX += Math.sin(angle) * 5 * enemies[e1].accel;
 		enemies[e1].vY += Math.cos(angle) * 5 * enemies[e1].accel;
