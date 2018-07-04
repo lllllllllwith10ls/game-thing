@@ -186,7 +186,7 @@
 							let x = enemies[i].xPos;
 							let y = enemies[i].yPos;
 							let angle = enemies[i].angle;
-							let side = 10;
+							let side = 15;
 							
 							let xlength = -Math.cos(angle)*side + x;
 							let ylength = -Math.sin(angle)*side + y;
@@ -253,16 +253,16 @@
 					for(bigcrashers; bigcrashers > 0; bigcrashers--) {
 						let side = Math.random() * 4 + 1;
 						if (side >= 1 && side < 2) {
-							enemies.push(new Crasher(0,Math.random()*400,0,0));
+							enemies.push(new BigCrasher(0,Math.random()*400,0,0));
 						}
 						if (side >= 2 && side < 3) {
-							enemies.push(new Crasher(400,Math.random()*400,0,0));
+							enemies.push(new BigCrasher(400,Math.random()*400,0,0));
 						}
 						if (side >= 3 && side < 4) {
-							enemies.push(new Crasher(Math.random()*400,0,0,0));
+							enemies.push(new BigCrasher(Math.random()*400,0,0,0));
 						}
 						if (side >= 4) {
-							enemies.push(new Crasher(Math.random()*400,400,0,0));
+							enemies.push(new BigCrasher(Math.random()*400,400,0,0));
 						}
 					}
 				}
