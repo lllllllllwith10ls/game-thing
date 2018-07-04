@@ -225,10 +225,13 @@
 					if (side >= 4) {
 						enemies.push(new Crasher(Math.random()*400,400,0,0));
 					}
-					player.damage += 0.2;
-					player.reload *= 19/20;
 				}
 				wavenum++;
+				player.damage += 0.2;
+				player.reload *= 19/20;
+				if(wavenum % 5 = 0) {
+					player.lives++;
+				}
 			}
 			
 		</script>
