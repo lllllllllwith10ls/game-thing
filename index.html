@@ -48,11 +48,11 @@
 			const updateGame = () => {
 				theGame.clear();
 				if (keys[87]) {
-					player.vY = 1;
+					player.vY = -1;
 				} else if (keys[65]) {
 					player.vX = -1;
 				} else if (keys[83]) {
-					player.vY = -1;
+					player.vY = 1;
 				} else if (keys[68]) {
 					player.vX = 1;
 				}
