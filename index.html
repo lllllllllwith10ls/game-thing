@@ -182,9 +182,9 @@
 			}
 			
 			const wave = () => {
-				let crashers = Math.random(1,4);
+				let crashers = Math.random() * 3 + 1;
 				for(crashers; crashers > 0; crashers--) {
-					let side = Math.random(1,5);
+					let side = Math.random() * 4 + 1;
 					console.log(side);
 					if (side >= 1 && side < 2) {
 						enemies.push(new Crasher(0,Math.random(0,400),0,0));
