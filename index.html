@@ -207,7 +207,7 @@
 							let x = enemies[i].xPos;
 							let y = enemies[i].yPos;
 							let angle = enemies[i].angle;
-							let side = 15;
+							let side = 10;
 							
 							let xlength = -Math.cos(angle)*side + x;
 							let ylength = -Math.sin(angle)*side + y;
@@ -236,6 +236,9 @@
 							shapes.lineTo(xlength5,ylength5);
 							shapes.moveTo(x,y);
 							shapes.lineTo(xlength5,ylength5);
+							shapes.lineTo(xlength6,ylength6);
+							shapes.moveTo(x,y);
+							shapes.lineTo(xlength6,ylength6);
 							shapes.lineTo(xlength,ylength);
 							shapes.stroke();
 							shapes.closePath();
