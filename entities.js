@@ -114,6 +114,7 @@ class Bullet {
 };
 class Crasher {
 	constructor(x,y,vx,vy) {
+		this.name = "crasher";
 		this.behavior = "chaser";
 		this.xPos = x;
 		this.yPos = y;
