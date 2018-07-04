@@ -181,6 +181,27 @@
 							shapes.stroke();
 							shapes.closePath();
 						}
+						if(enemies[i].name === "big crasher") {
+							enemies[i].angle = Math.atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos));
+							let x = enemies[i].xPos;
+							let y = enemies[i].yPos;
+							let angle = enemies[i].angle;
+							let side = 10;
+							
+							let xlength = -Math.cos(angle)*side + x;
+							let ylength = -Math.sin(angle)*side + y;
+							let xlength2 = -Math.cos(angle+2*Math.PI/3)*side + x;
+							let ylength2 = -Math.sin(angle+2*Math.PI/3)*side + y;
+							let xlength3 = -Math.cos(angle+4*Math.PI/3)*side + x;
+							let ylength3 = -Math.sin(angle+4*Math.PI/3)*side + y;
+							shapes.beginPath();
+							shapes.moveTo(xlength,ylength);
+							shapes.lineTo(xlength2,ylength2);
+							shapes.lineTo(xlength3,ylength3);
+							shapes.lineTo(xlength,ylength);
+							shapes.stroke();
+							shapes.closePath();
+						}
 						playerCollision(i);
 					}
 				}
@@ -224,6 +245,24 @@
 					}
 					if (side >= 4) {
 						enemies.push(new Crasher(Math.random()*400,400,0,0));
+					}
+				}
+				if(wavenum >= 5) {
+					let bigcrashers = Math.eandom() * 2;
+					for(bigcrashers; bigcrashers > 0; bigcrashers--) {
+						let side = Math.random() * 4 + 1;
+						if (side >= 1 && side < 2) {
+							enemies.push(new Crasher(0,Math.random()*400,0,0));
+						}
+						if (side >= 2 && side < 3) {
+							enemies.push(new Crasher(400,Math.random()*400,0,0));
+						}
+						if (side >= 3 && side < 4) {
+							enemies.push(new Crasher(Math.random()*400,0,0,0));
+						}
+						if (side >= 4) {
+							enemies.push(new Crasher(Math.random()*400,400,0,0));
+						}
 					}
 				}
 				wavenum++;
