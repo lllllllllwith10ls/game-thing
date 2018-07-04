@@ -48,16 +48,16 @@
 			const updateGame = () => {
 				theGame.clear();
 				if (keys[87]) {
-					player.vY += -1;
+					player.vY -= 0.1;
 				} 
 				if (keys[65]) {
-					player.vX += -1;
+					player.vX -= 0.1;
 				} 
 				if (keys[83]) {
-					player.vY += 1;
+					player.vY += 0.1;
 				}
 				if (keys[68]) {
-					player.vX += 1;
+					player.vX += 0.1;
 				}
 				if (player.xPos < 0) {
 					player.xPos = 0;
