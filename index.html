@@ -246,7 +246,7 @@
 						if(enemies[i].name === "spawner boss") {
 							let x = enemies[i].xPos;
 							let y = enemies[i].yPos;
-							enemies[i].angle = -Math.atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos))+Math.PI/4;
+							enemies[i].angle = -Math.atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos))+Math.PI;
 							let angle = enemies[i].angle;
 
 							let x1 = Math.sin(angle)*-10+x;
