@@ -50,7 +50,7 @@ const entityUpdate = () => {
 				enemies[i].vY = -enemies[i].vY * 4/5;
 			}
 			if(enemies[i].behavior === "chaser") {
-				let angle = Math.atan2(enemies[i].xPos-player.xPos,enemies[i].yPos-player.yPos);
+				let angle = Math.atan2(player.xPos-enemies[i].xPos,player.yPos-enemies[i].yPos);
 				enemies[i].vX += Math.sin(angle) * enemies[i].accel;
 				enemies[i].vY += Math.cos(angle) * enemies[i].accel;
 			}
@@ -79,6 +79,8 @@ const entityUpdate = () => {
 
 const bulletCollision = (b,e) => {
 	if((bullets[b].xPos-bullets[b].hitbox < enemies[e].xPos+enemies[e].hitbox) || (bullets[b].xPos+bullets[b].hitbox > enemies[e].xPos-enemies[e].hitbox) || (bullets[b].yPos-bullets[b].hitbox < enemies[e].yPos+enemies[e].hitbox) || (bullets[b].yPos+bullets[b].hitbox > enemies[e].yPos-enemies[e].hitbox)) {
+		
+	} else {
 		if(bullets[b].health > enemies[b].health) {
 			bullets[b].health -= enemies[e].health;
 			enemies[e].dead = true;
