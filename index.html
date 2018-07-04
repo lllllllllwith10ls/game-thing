@@ -125,7 +125,7 @@
 				for(let i = 0; i < bullets.length; i++) {
 					if(bullets[i].dead !== true) {
 						shapes.beginPath();
-						shapes.arc(player.xPos,player.yPos,2.5,0,2*Math.PI);
+						shapes.arc(bullets[i].xPos,bullets[i].yPos,2.5,0,2*Math.PI);
 						shapes.stroke();
 						shapes.closePath();
 					}
