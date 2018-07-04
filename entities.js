@@ -98,10 +98,10 @@ const enemyCollision = (e1,e2) => {
 		
 	} else {
 		let angle = Math.atan2(enemies[e1].xPos-enemies[e2].xPos,enemies[e1].yPos-enemies[e2].yPos);
-		enemies[e1].vX += -Math.sin(angle);
-		enemies[e1].vY += -Math.cos(angle);
-		enemies[e2].vX += Math.sin(angle);
-		enemies[e2].vY += Math.cos(angle);
+		enemies[e1].vX += -Math.sin(angle) * 5 * enemies[e1].accel;
+		enemies[e1].vY += -Math.cos(angle) * 5 * enemies[e1].accel;
+		enemies[e2].vX += Math.sin(angle) * 5 * enemies[e2].accel;
+		enemies[e2].vY += Math.cos(angle) * 5 * enemies[e2].accel;
 	}
 }
 
