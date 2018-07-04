@@ -93,6 +93,8 @@ const bulletCollision = (b,e) => {
 }
 const enemyCollision = (e1,e2) => {
 	if((enemies[e1].xPos-enemies[e1].hitbox < enemies[e2].xPos+enemies[e2].hitbox) || (enemies[e1].xPos+enemies[e1].hitbox > enemies[e2].xPos-enemies[e2].hitbox) || (enemies[e1].yPos-enemies[e1].hitbox < enemies[e2].yPos+enemies[e2].hitbox) || (enemies[e1].yPos+enemies[e1].hitbox > enemies[e2].yPos-enemies[e2].hitbox)) {
+		
+	} else {
 		let angle = Math.atan2(enemies[e1].xPos-enemies[e2].xPos,enemies[e1].yPos-enemies[e2].yPos);
 		enemies[e1].vX += -Math.sin(angle);
 		enemies[e1].vY += -Math.cos(angle);
@@ -125,6 +127,7 @@ class Crasher {
 		this.speed = 3;
 		this.health = 2.5;
 		this.hitbox = 5;
+		this.angle = 0;
 	}
 };
 
