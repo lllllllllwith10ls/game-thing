@@ -36,7 +36,7 @@
 					this.context = this.canvas.getContext("2d");
 					this.interval = setInterval(updateGame, 20);
 					window.addEventListener("click", function (e) {
-						var margin = this.canvas.getBoundingClientRect();
+						let margin = this.context.getBoundingClientRect();
 						
 						mouse.x = e.clientX - margin.left;
 						mouse.y = e.clientY - margin.top;
@@ -111,7 +111,7 @@
 			}
 			const update = () => {
 				let canvas = theGame.canvas;
-				var shapes = canvas.getContext("2d");
+				let shapes = canvas.getContext("2d");
 				shapes.fillStyle = "#FF0000";
 				shapes.beginPath();
 				shapes.arc(player.xPos,player.yPos,5,0,2*Math.PI);
