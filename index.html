@@ -244,27 +244,27 @@
 							shapes.closePath();
 						}
 						if(enemies[i].name === "spawner boss") {
-							var x = enemies[i].xPos;
-							var y = enemies[i].yPos;
+							let x = enemies[i].xPos;
+							let y = enemies[i].yPos;
 							enemies[i].angle = -Math.atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos))+180;
-							var angle = enemies[i].angle;
+							let angle = enemies[i].angle;
 
-							var x1 = Math.sin(angle)*-10+x;
-							var y1 = Math.cos(angle)*-10+y;
-							var x2 = Math.sin(angle)*10+x;
-							var y2 = Math.cos(angle)*10+y;
-							var x3 = Math.sin(angle+Math.atan2(20,10))*(Math.sqrt(Math.pow(10,2)+Math.pow(20,2)))+x;
-							var y3 = Math.cos(angle+Math.atan2(20,10))*(Math.sqrt(Math.pow(10,2)+Math.pow(20,2)))+y;
-							var x4 = Math.sin(angle+Math.atan2(20,30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+x;
-							var y4 = Math.cos(angle+Math.atan2(20,30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+y;
-							var x5 = Math.sin(angle+Math.atan2(-20,30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+x;
-							var y5 = Math.cos(angle+Math.atan2(-20,30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+y;
-							var x6 = Math.sin(angle+Math.atan2(-20,-30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+x;
-							var y6 = Math.cos(angle+Math.atan2(-20,-30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+y;
-							var x7 = Math.sin(angle+Math.atan2(20,-30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+x;
-							var y7 = Math.cos(angle+Math.atan2(20,-30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+y;
-							var x8 = Math.sin(angle+Math.atan2(20,-10))*(Math.sqrt(Math.pow(10,2)+Math.pow(20,2)))+x;
-							var y8 = Math.cos(angle+Math.atan2(20,-10))*(Math.sqrt(Math.pow(10,2)+Math.pow(20,2)))+y;
+							let x1 = Math.sin(angle)*-10+x;
+							let y1 = Math.cos(angle)*-10+y;
+							let x2 = Math.sin(angle)*10+x;
+							let y2 = Math.cos(angle)*10+y;
+							let x3 = Math.sin(angle+Math.atan2(20,10))*(Math.sqrt(Math.pow(10,2)+Math.pow(20,2)))+x;
+							let y3 = Math.cos(angle+Math.atan2(20,10))*(Math.sqrt(Math.pow(10,2)+Math.pow(20,2)))+y;
+							let x4 = Math.sin(angle+Math.atan2(20,30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+x;
+							let y4 = Math.cos(angle+Math.atan2(20,30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+y;
+							let x5 = Math.sin(angle+Math.atan2(-20,30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+x;
+							let y5 = Math.cos(angle+Math.atan2(-20,30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+y;
+							let x6 = Math.sin(angle+Math.atan2(-20,-30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+x;
+							let y6 = Math.cos(angle+Math.atan2(-20,-30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+y;
+							let x7 = Math.sin(angle+Math.atan2(20,-30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+x;
+							let y7 = Math.cos(angle+Math.atan2(20,-30))*(Math.sqrt(Math.pow(30,2)+Math.pow(20,2)))+y;
+							let x8 = Math.sin(angle+Math.atan2(20,-10))*(Math.sqrt(Math.pow(10,2)+Math.pow(20,2)))+x;
+							let y8 = Math.cos(angle+Math.atan2(20,-10))*(Math.sqrt(Math.pow(10,2)+Math.pow(20,2)))+y;
 							
 							shapes.beginPath();
 							shapes.lineTo(x1,y1);
