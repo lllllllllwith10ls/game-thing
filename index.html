@@ -137,6 +137,7 @@
 				waveNum++;
 				if(waveNum > 50) {
 					enemies.push(new Crasher(0,0,0,0));
+					waveNum = 0;
 				}
 				let canvas = theGame.canvas;
 				let shapes = canvas.getContext("2d");
