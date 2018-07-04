@@ -44,6 +44,8 @@
 						mouse.x = e.clientX - margin.left;
 						mouse.y = e.clientY - margin.top;
 						console.log(mouse.x + ", " + mouse.y);
+						let angle = atan2(player.yPos-mouse.y,player.xPos-mouse.x 
+						bullets.push(new Bullet(x,y,sin(angle)*7.5,cos(angle)*7.5));
 					})
 					window.addEventListener('keydown', function (e) {
 							e.preventDefault();
@@ -109,7 +111,7 @@
 				player.xPos += player.vX;
 				player.yPos += player.vY;
 				
-				//newPos();
+				entityUpdate();
 				update();
 			}
 			const update = () => {
@@ -117,8 +119,17 @@
 				let shapes = canvas.getContext("2d");
 				shapes.fillStyle = "#FF0000";
 				shapes.beginPath();
-				shapes.arc(player.xPos,player.yPos,5,0,2*Math.PI);
+				shapes.arc(player.xPos,player.yPos,10,0,2*Math.PI);
 				shapes.stroke();
+				shapes.closePath();
+				for(let i; i < bullets.length; i++) {
+					if(bullets[i].dead !== true) {
+						shapes.beginPath();
+						shapes.arc(player.xPos,player.yPos,2.5,0,2*Math.PI);
+						shapes.stroke();
+						shapes.closePath();
+					}
+				}
 			}
 			
 		</script>
