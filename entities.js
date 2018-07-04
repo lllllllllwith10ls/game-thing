@@ -124,7 +124,7 @@ class Crasher {
 		this.accel = 0.1;
 		this.speed = 3;
 		this.health = 2.5;
-		rhis.hitbox = 5;
+		this.hitbox = 5;
 	}
 };
 
