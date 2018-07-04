@@ -145,7 +145,7 @@
 				}
 				let canvas = theGame.canvas;
 				let shapes = canvas.getContext("2d");
-				shapes.fillStyle = "#FF0000";
+				shapes.fillStyle = "#000000";
 				shapes.beginPath();
 				shapes.arc(player.xPos,player.yPos,10,0,2*Math.PI);
 				shapes.stroke();
@@ -187,7 +187,10 @@
 				document.getElementById("lives").innerHTML = "Lives: " + player.lives;
 				document.getElementById("wave number").innerHTML = "Wave: " + wavenum;
 				if(player.lives <= 0) {
-					shapes.fillText("you died lol",200,200);
+					shapes.fillText("you died lol",175,200);
+					theGame.stop();
+					theGame.clear();
+					
 				}
 				
 			}
