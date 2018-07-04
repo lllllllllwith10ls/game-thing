@@ -137,10 +137,10 @@
 				update();
 			}
 			const update = () => {
-				waveNum++;
+				waves++;
 				if(waveNum > 200) {
 					wave();
-					waveNum = 0;
+					waves = 0;
 				}
 				let canvas = theGame.canvas;
 				let shapes = canvas.getContext("2d");
