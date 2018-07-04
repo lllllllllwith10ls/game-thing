@@ -139,7 +139,7 @@
 			}
 			const update = () => {
 				waves++;
-				if(waves > 200) {
+				if(waves > 300) {
 					wave();
 					waves = 0;
 				}
@@ -219,6 +219,8 @@
 					if (side >= 4) {
 						enemies.push(new Crasher(Math.random()*400,400,0,0));
 					}
+					player.damage += 0.2;
+					player.damage *= 19/20;
 				}
 				wavenum++;
 			}
