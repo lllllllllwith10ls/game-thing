@@ -5,6 +5,8 @@
 	<body onload="startGame()">
 		<canvas id="game area" width="400" height="400" style="border:1px solid #c3c3c3;">
 		</canvas>
+		<p id="lives"></p>
+		<p id="wave number"></p>
 		<script type="text/javascript" src="entities.js"></script>
 		<script>
 			const startGame = () => {
@@ -34,7 +36,8 @@
 			}
 			let bullets = [];
 			let enemies = [];
-			let waveNum = 0;
+			let waves = 0;
+			let wavenum = 0;
 			
 			const theGame = {
 				canvas : document.getElementById("game area"),
@@ -177,28 +180,44 @@
 							shapes.stroke();
 							shapes.closePath();
 						}
+						playerCollision(i);
 					}
 				}
+				document.getElementById("lives").innerHTML = "Lives: " + player.lives;
+				document.getElementById("lives").innerHTML = "Wave: " + wavenum;
+				
 			}
 			
+			const playerCollision = (e) => {
+				if(
+					player.xPos - 10 < enemies[e].xPos + enemies[e].hitbox &&
+					player.xPos + 10 > enemies[e].xPos - enemies[e].hitbox &&
+					player.yPos - 10 < enemies[e].yPos + enemies[e].hitbox &&
+					player.yPos + 10 > enemies[e].yPos - enemies[e].hitbox
+				) {
+					enemies[e].health -= 5;
+					player.lives--;
+				}
+			}
 			const wave = () => {
 				let crashers = Math.random() * 3 + 1;
 				for(crashers; crashers > 0; crashers--) {
 					let side = Math.random() * 4 + 1;
 					console.log(side);
 					if (side >= 1 && side < 2) {
-						enemies.push(new Crasher(0,Math.random(0,400),0,0));
+						enemies.push(new Crasher(0,Math.random()*400,0,0));
 					}
 					if (side >= 2 && side < 3) {
-						enemies.push(new Crasher(400,Math.random(0,400),0,0));
+						enemies.push(new Crasher(400,Math.random()*400,0,0));
 					}
 					if (side >= 3 && side < 4) {
-						enemies.push(new Crasher(Math.random(0,400),0,0,0));
+						enemies.push(new Crasher(Math.random()*400,0,0,0));
 					}
 					if (side >= 4) {
-						enemies.push(new Crasher(Math.random(0,400),400,0,0));
+						enemies.push(new Crasher(Math.random()*400,400,0,0));
 					}
 				}
+				wavenum++;
 			}
 			
 		</script>
