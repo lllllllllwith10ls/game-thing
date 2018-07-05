@@ -191,6 +191,7 @@ class SpawnerBoss {
 		this.hitbox = 30;
 		this.angle = 0;
 		this.cooldown = 0;
+		this.stopwaves = true;
 	}
 };
 
