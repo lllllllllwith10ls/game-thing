@@ -286,7 +286,7 @@
 							shapes.lineTo(x1,y1);
 							shapes.stroke();
 							shapes.closePath();
-							
+							enemies[i].cooldown++;
 							if(enemies[i].health <= 50) {
 								if(enemies[i].cooldown >= 20) {
 									enemies.push(new Crasher(x,y,0,0));
