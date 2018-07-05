@@ -427,15 +427,15 @@
 								let y3 = Math.cos(angle+Math.PI/2)*-10 + y;
 								let x4 = Math.sin(angle+Math.PI)*-10 + x;
 								let y4 = Math.cos(angle+Math.PI)*-10 + y;
-								shape.beginPath();
-								shape.moveTo(x1,y1);
-								shape.lineTo(x2,y2);
-								shape.lineTo(x3,y3);
-								shape.lineTo(x4,y4);
-								shape.lineTo(x1,x1);
-								shape.fill();
-								shape.stroke();
-								shape.closePath();
+								shapes.beginPath();
+								shapes.moveTo(x1,y1);
+								shapes.lineTo(x2,y2);
+								shapes.lineTo(x3,y3);
+								shapes.lineTo(x4,y4);
+								shapes.lineTo(x1,x1);
+								shapes.fill();
+								shapes.stroke();
+								shapes.closePath();
 								angle = enemies[i].angle;
 								x1 = Math.sin(angle-Math.PI/2)*-2 + x;
 								y1 = Math.cos(angle-Math.PI/2)*-2 + y
@@ -445,21 +445,21 @@
 								y3 = Math.cos(angle+Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + y;
 								x4 = Math.sin(angle-Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + x;
 								y4 = Math.cos(angle-Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + y;
-								shape.beginPath();
-								shape.moveTo(x1,y1);
-								shape.lineTo(x2,y2);
-								shape.lineTo(x3,y3);
-								shape.lineTo(x4,y4);
-								shape.lineTo(x1,x1);
-								shape.fill();
-								shape.stroke();
-								shape.closePath();
+								shapes.beginPath();
+								shapes.moveTo(x1,y1);
+								shapes.lineTo(x2,y2);
+								shapes.lineTo(x3,y3);
+								shapes.lineTo(x4,y4);
+								shapes.lineTo(x1,x1);
+								shapes.fill();
+								shapes.stroke();
+								shapes.closePath();
 								
-								shape.beginPath()
-								shape.arc(x,y,5,0,Math.PI*2);
-								shape.fill();
-								shape.stroke();
-								shape.closePath();
+								shapes.beginPath()
+								shapes.arc(x,y,5,0,Math.PI*2);
+								shapes.fill();
+								shapes.stroke();
+								shapes.closePath();
 								
 								enemies[i].cooldown++;
 								if(enemies[i].cooldown >= 25) {
