@@ -188,7 +188,7 @@ class SpawnerBoss {
 		this.dead = false;
 		this.accel = 0.001;
 		this.speed = 0.1;
-		this.health = 200;
+		this.health = 300;
 		this.hitbox = 30;
 		this.angle = 0;
 		this.cooldown = 0;
