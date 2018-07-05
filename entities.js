@@ -33,28 +33,52 @@ const entityUpdate = () => {
 			if(enemies[i].vX > enemies[i].speed) {
 				enemies[i].vX = enemies[i].speed;
 			}
-			if (enemies[i].xPos < 0) {
-				enemies[i].xPos = 0;
-				enemies[i].vX = -enemies[i].vX * 1/2;
-			}
-			if (enemies[i].xPos > 400) {
-				enemies[i].xPos = 400;
-				enemies[i].vX = -enemies[i].vX * 1/2;
-			}
-			if (enemies[i].yPos < 0) {
-				enemies[i].yPos = 0;
-				enemies[i].vY = -enemies[i].vY * 1/2;
-			}
-			if (enemies[i].yPos > 400) {
-				enemies[i].yPos = 400;
-				enemies[i].vY = -enemies[i].vY * 1/2;
+			if(enemies[i].behavior === "projectile") {
+				if(enemies[i].xPos < 0 || enemies[i].yPos < 0 || enemies[i].xPos > 400 || enemies[i].yPos > 400) {
+					enemies[i].dead = true;
+				}
+			} else {
+				if (enemies[i].xPos < 0) {
+					enemies[i].xPos = 0;
+					enemies[i].vX = -enemies[i].vX * 1/2;
+				}
+				if (enemies[i].xPos > 400) {
+					enemies[i].xPos = 400;
+					enemies[i].vX = -enemies[i].vX * 1/2;
+				}
+				if (enemies[i].yPos < 0) {
+					enemies[i].yPos = 0;
+					enemies[i].vY = -enemies[i].vY * 1/2;
+				}
+				if (enemies[i].yPos > 400) {
+					enemies[i].yPos = 400;
+					enemies[i].vY = -enemies[i].vY * 1/2;
+				}
 			}
 			if(enemies[i].behavior === "chaser") {
 				let angle = Math.atan2(player.xPos-enemies[i].xPos,player.yPos-enemies[i].yPos);
 				enemies[i].vX += Math.sin(angle) * enemies[i].accel;
 				enemies[i].vY += Math.cos(angle) * enemies[i].accel;
 			}
-				
+			if(enemies[i].behavior === "strafer") {
+				let angle = Math.atan2(player.xPos-enemies[i].xPos,player.yPos-enemies[i].yPos);
+				enemies[i].vX += Math.sin(angle) * enemies[i].accel;
+				enemies[i].vY += Math.cos(angle) * enemies[i].accel;
+				if(sqrt(pow(enemies[i].xPos-player.xPos,2)+pow(enemies[i].yPos-player.yPos,2)) < 100) {
+					enemies[i].vX += (enemies[i].xPos-player.xPos)/div;
+					enemies[i].vY += (enemies[i].yPos-player.yPos)/div;
+
+					enemies[i].xPos += enemies[i].vX;
+					enemies[i].yPos += enemies[i].vY;
+				} else {
+					enemies[i].vX -= (enemies[i].xPos-player.xPos)/div;
+					enemies[i].vY -= (enemies[i].yPos-player.yPos)/div;
+
+					enemies[i].xPos += enemies[i].vX;
+					enemies[i].yPos += enemies[i].vY;
+				}
+			}
+			
 			enemies[i].xPos += enemies[i].vX;
 			enemies[i].yPos += enemies[i].vY;
 			for(let j = 0; j < enemies.length; j++) {
@@ -88,7 +112,8 @@ const bulletCollision = (b,e) => {
 		bullets[b].xPos - bullets[b].hitbox < enemies[e].xPos + enemies[e].hitbox &&
 		bullets[b].xPos + bullets[b].hitbox > enemies[e].xPos - enemies[e].hitbox &&
 		bullets[b].yPos - bullets[b].hitbox < enemies[e].yPos + enemies[e].hitbox &&
-		bullets[b].yPos + bullets[b].hitbox > enemies[e].yPos - enemies[e].hitbox
+		bullets[b].yPos + bullets[b].hitbox > enemies[e].yPos - enemies[e].hitbox &&
+		enemies[e].behavior !== "projectile"
 	) {
 		if(bullets[b].health > enemies[e].health) {
 			bullets[b].health -= enemies[e].health;
@@ -108,7 +133,7 @@ const enemyCollision = (e1,e2) => {
 		enemies[e1].xPos + enemies[e1].hitbox > enemies[e2].xPos - enemies[e2].hitbox &&
 		enemies[e1].yPos - enemies[e1].hitbox < enemies[e2].yPos + enemies[e2].hitbox &&
 		enemies[e1].yPos + enemies[e1].hitbox > enemies[e2].yPos - enemies[e2].hitbox &&
-		enemies[e1].ghost != true && enemies[e2].ghost != true
+		enemies[e1].ghost !== true && enemies[e2].ghost !== true
 	) {
 		let angle = Math.atan2(enemies[e1].xPos-enemies[e2].xPos,enemies[e1].yPos-enemies[e2].yPos);
 		enemies[e1].vX += Math.sin(angle) * enemies[e1].accel;
@@ -214,7 +239,38 @@ class MiniSpawner {
 		this.ghost = true;
 	}
 };
-
+class EnemyBullet {
+	constructor(x,y,vx,vy) {
+		this.name = "enemy bullet";
+		this.behavior = "projectile";
+		this.xPos = x;
+		this.yPos = y;
+		this.vX = vx;
+		this.vY = vy;
+		this.dead = false;
+		this.speed = 3;
+		this.health = 5;
+		this.hitbox = 3;
+		this.ghost = true;
+	}
+};
+class Shooter {
+	constructor(x,y,vx,vy) {
+		this.name = "shooter";
+		this.behavior = "strafer";
+		this.xPos = x;
+		this.yPos = y;
+		this.vX = vx;
+		this.vY = vy;
+		this.dead = false;
+		this.accel = 0.1;
+		this.speed = 1;
+		this.health = 10;
+		this.hitbox = 10;
+		this.angle = 0;
+		this.cooldown = 0;
+	}
+};
 
 
 
