@@ -190,6 +190,7 @@ class SpawnerBoss {
 		this.health = 200;
 		this.hitbox = 30;
 		this.angle = 0;
+		this.cooldown = 0;
 	}
 };
 
