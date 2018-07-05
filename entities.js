@@ -196,6 +196,24 @@ class SpawnerBoss {
 		this.ghost = true;
 	}
 };
+class MiniSpawner {
+	constructor(x,y,vx,vy) {
+		this.name = "mini spawner";
+		this.behavior = "chaser";
+		this.xPos = x;
+		this.yPos = y;
+		this.vX = vx;
+		this.vY = vy;
+		this.dead = false;
+		this.accel = 0.05;
+		this.speed = 1;
+		this.health = 7.5;
+		this.hitbox = 10;
+		this.angle = 0;
+		this.cooldown = 0;
+		this.ghost = true;
+	}
+};
 
 
 
