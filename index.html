@@ -138,8 +138,14 @@
 				update();
 			}
 			const update = () => {
+				let wavestop = false;
+				for(let i = 0; i < enemies.length; i++) {
+					if(enemies[i].stopwaves === true) {
+						wavestop = true;
+					}
+				}
 				waves++;
-				if(waves > 300) {
+				if(waves > 300 && wavestop === false) {
 					wave();
 					waves = 0;
 				}
@@ -160,6 +166,7 @@
 				}
 				for(let i = 0; i < enemies.length; i++) {
 					if(enemies[i].dead !== true) {
+						
 						if(enemies[i].name === "crasher") {
 							enemies[i].angle = Math.atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos));
 							let x = enemies[i].xPos;
@@ -417,6 +424,10 @@
 							enemies.push(new Splitter(Math.random()*400,400,0,0));
 						}
 					}
+				}
+				if(wavenum === 15) {
+					enemies.push(new SpawnerBoss(0,200,0,0));
+					
 				}
 				player.damage += 0.2;
 				player.reload *= 19/20;
