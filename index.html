@@ -294,8 +294,8 @@
 							} else {
 								if(enemies[i].cooldown >= 100) {
 									enemies[i].cooldown = 0;
-									var type = round(random(0.5,3.5));
-									if(type === 1) {
+									var type = Math.random()*3;
+									if(type <= 1) {
 										for(var j = 1; j <= 9; j++) {
 										
 											if(j === 1) {
@@ -326,9 +326,9 @@
 												enemies.push(new Crasher(x+10,y+10,0,0));
 											};
 										}
-									} else if(type === 2) {
+									} else if(type <= 2 && type > 1) {
 										enemies.push(new BigCrasher(x,y,0,0));
-									} else if(type === 3) {
+									} else if(type <= 3 && type > 2) {
 										enemies.push(new Splitter(x,y,0,0));
 									}
 								}
