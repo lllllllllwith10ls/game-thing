@@ -364,6 +364,56 @@
 								}
 							}
 						}
+						f(enemies[i].name === "mini spawner") {
+							shapes.beginPath();
+							shapes.moveTo(0,380);
+							shapes.lineTo(400,380);
+							shapes.moveTo(400*(enemies[i].health/300),380);
+							shapes.lineTo(400*(enemies[i].health/300),400);
+							shapes.stroke();
+							shapes.closePath;
+							
+							let x = enemies[i].xPos;
+							let y = enemies[i].yPos;
+							enemies[i].angle = -Math.atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos))+Math.PI;
+							let angle = enemies[i].angle;
+
+							let x1 = Math.sin(angle)*-5+x;
+							let y1 = Math.cos(angle)*-5+y;
+							let x2 = Math.sin(angle)*5+x;
+							let y2 = Math.cos(angle)*5+y;
+							let x3 = Math.sin(angle+Math.atan2(10,5))*(Math.sqrt(Math.pow(5,2)+Math.pow(10,2)))+x;
+							let y3 = Math.cos(angle+Math.atan2(10,5))*(Math.sqrt(Math.pow(5,2)+Math.pow(10,2)))+y;
+							let x4 = Math.sin(angle+Math.atan2(10,15))*(Math.sqrt(Math.pow(15,2)+Math.pow(10,2)))+x;
+							let y4 = Math.cos(angle+Math.atan2(10,15))*(Math.sqrt(Math.pow(15,2)+Math.pow(10,2)))+y;
+							let x5 = Math.sin(angle+Math.atan2(-10,15))*(Math.sqrt(Math.pow(15,2)+Math.pow(10,2)))+x;
+							let y5 = Math.cos(angle+Math.atan2(-10,15))*(Math.sqrt(Math.pow(15,2)+Math.pow(10,2)))+y;
+							let x6 = Math.sin(angle+Math.atan2(-10,-15))*(Math.sqrt(Math.pow(15,2)+Math.pow(10,2)))+x;
+							let y6 = Math.cos(angle+Math.atan2(-10,-15))*(Math.sqrt(Math.pow(15,2)+Math.pow(10,2)))+y;
+							let x7 = Math.sin(angle+Math.atan2(10,-15))*(Math.sqrt(Math.pow(15,2)+Math.pow(10,2)))+x;
+							let y7 = Math.cos(angle+Math.atan2(10,-15))*(Math.sqrt(Math.pow(15,2)+Math.pow(10,2)))+y;
+							let x8 = Math.sin(angle+Math.atan2(10,-5))*(Math.sqrt(Math.pow(5,2)+Math.pow(10,2)))+x;
+							let y8 = Math.cos(angle+Math.atan2(10,-5))*(Math.sqrt(Math.pow(5,2)+Math.pow(10,2)))+y;
+							
+							shapes.beginPath();
+							shapes.moveTo(x1,y1);
+							shapes.lineTo(x2,y2);
+							shapes.lineTo(x3,y3);
+							shapes.lineTo(x4,y4);
+							shapes.lineTo(x5,y5);
+							shapes.lineTo(x6,y6);
+							shapes.lineTo(x7,y7);
+							shapes.lineTo(x8,y8);
+							shapes.lineTo(x1,y1);
+							shapes.fill();
+							shapes.stroke();
+							shapes.closePath();
+							enemies[i].cooldown++;
+							if(enemies[i].cooldown >= 50) {
+								enemies.push(new Crasher(x,y,0,0));
+								enemies[i].cooldown = 0;
+							}
+						}
 						playerCollision(i);
 					}
 				}
