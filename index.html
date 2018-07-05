@@ -178,6 +178,7 @@
 					if(bullets[i].dead !== true) {
 						shapes.beginPath();
 						shapes.arc(bullets[i].xPos,bullets[i].yPos,2.5,0,2*Math.PI);
+						shapes.fill();
 						shapes.stroke();
 						shapes.closePath();
 					}
@@ -404,6 +405,13 @@
 							if(enemies[i].cooldown >= 100) {
 								enemies.push(new Crasher(x,y,0,0));
 								enemies[i].cooldown = 0;
+							}
+							if(enemies[i].name === "enemy bullet") {
+								shapes.beginPath();
+								shapes.arc(enemies[i].xPos,enemies[i].yPos,2.5,0,2*Math.PI);
+								shapes.fill();
+								shapes.stroke();
+								shapes.closePath();
 							}
 							if(enemies[i].name === "shooter") {
 								enemies[i].angle = -atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos))+90;
