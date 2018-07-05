@@ -268,6 +268,7 @@ class Shooter {
 		this.health = 10;
 		this.hitbox = 10;
 		this.angle = 0;
+		this.angle2 = Math.random() * 2 * Math.PI;
 		this.cooldown = 0;
 	}
 };
