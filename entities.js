@@ -193,3 +193,4 @@ class SpawnerBoss {
 		this.cooldown = 0;
 	}
 };
+
