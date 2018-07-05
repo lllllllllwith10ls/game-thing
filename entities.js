@@ -71,8 +71,8 @@ const entityUpdate = () => {
 					enemies[i].xPos += enemies[i].vX;
 					enemies[i].yPos += enemies[i].vY;
 				} else {
-					enemies[i].vX -= (enemies[i].xPos-player.xPos)/div;
-					enemies[i].vY -= (enemies[i].yPos-player.yPos)/div;
+					enemies[i].vX -= enemies[i].xPos-player.xPos;
+					enemies[i].vY -= enemies[i].yPos-player.yPos;
 
 					enemies[i].xPos += enemies[i].vX;
 					enemies[i].yPos += enemies[i].vY;
