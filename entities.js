@@ -35,19 +35,19 @@ const entityUpdate = () => {
 			}
 			if (enemies[i].xPos < 0) {
 				enemies[i].xPos = 0;
-				enemies[i].vX = -enemies[i].vX * 4/5;
+				enemies[i].vX = -enemies[i].vX * 1/2;
 			}
 			if (enemies[i].xPos > 400) {
 				enemies[i].xPos = 400;
-				enemies[i].vX = -enemies[i].vX * 4/5;
+				enemies[i].vX = -enemies[i].vX * 1/2;
 			}
 			if (enemies[i].yPos < 0) {
 				enemies[i].yPos = 0;
-				enemies[i].vY = -enemies[i].vY * 4/5;
+				enemies[i].vY = -enemies[i].vY * 1/2;
 			}
 			if (enemies[i].yPos > 400) {
 				enemies[i].yPos = 400;
-				enemies[i].vY = -enemies[i].vY * 4/5;
+				enemies[i].vY = -enemies[i].vY * 1/2;
 			}
 			if(enemies[i].behavior === "chaser") {
 				let angle = Math.atan2(player.xPos-enemies[i].xPos,player.yPos-enemies[i].yPos);
