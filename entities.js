@@ -65,8 +65,8 @@ const entityUpdate = () => {
 				enemies[i].vX += Math.sin(angle) * enemies[i].accel;
 				enemies[i].vY += Math.cos(angle) * enemies[i].accel;
 				if(Math.sqrt(Math.pow(enemies[i].xPos-player.xPos,2)+Math.pow(enemies[i].yPos-player.yPos,2)) < 100) {
-					enemies[i].vX += (enemies[i].xPos-player.xPos)/div;
-					enemies[i].vY += (enemies[i].yPos-player.yPos)/div;
+					enemies[i].vX += enemies[i].xPos-player.xPos;
+					enemies[i].vY += enemies[i].yPos-player.yPos;
 
 					enemies[i].xPos += enemies[i].vX;
 					enemies[i].yPos += enemies[i].vY;
