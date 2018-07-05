@@ -401,9 +401,64 @@
 							shapes.stroke();
 							shapes.closePath();
 							enemies[i].cooldown++;
-							if(enemies[i].cooldown >= 50) {
+							if(enemies[i].cooldown >= 100) {
 								enemies.push(new Crasher(x,y,0,0));
 								enemies[i].cooldown = 0;
+							}
+							if(enemies[i].name === "shooter") {
+								enemies[i].angle = -atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos))+90;
+								enemies[i].angle2 += 4;
+								var angle = enemies[i].angle2;
+								let x1 = Math.sin(angle-90)*-10 + enemies[i].xPos;
+								let y1 = Math.cos(angle-90)*-10 + enemies[i].yPos;
+								let x2 = Math.sin(angle)*-10 + enemies[i].xPos;
+								let y2 = Math.cos(angle)*-10 + enemies[i].yPos;
+								let x3 = Math.sin(angle+90)*-10 + enemies[i].xPos;
+								let y3 = Math.cos(angle+90)*-10 + enemies[i].yPos;
+								let x4 = Math.sin(angle+180)*-10 + enemies[i].xPos;
+								let y4 = Math.cos(angle+180)*-10 + enemies[i].yPos;
+								shape.beginPath();
+								shape.moveTo(x1,y1);
+								shape.lineTo(x2,y2);
+								shape.lineTo(x3,y3);
+								shape.lineTo(x4,y4);
+								shape.lineTo(x1,x2);
+								shape.fill();
+								shape.stroke();
+								shape.closePath();
+								beginShape();
+								angle = enemies[i].angle;
+								x1 = Math.sin(angle-90)*-2 + enemies[i].xPos;
+								y1 = Math.cos(angle-90)*-2 + enemies[i].yPos;
+								x2 = Math.sin(angle+90)*-2 + enemies[i].xPos;
+								y2 = Math.cos(angle+90)*-2 + enemies[i].yPos;
+								x3 = Math.sin(angle+Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + enemies[i].xPos;
+								y3 = Math.cos(angle+Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + enemies[i].yPos;
+								x4 = Math.sin(angle-Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + enemies[i].xPos;
+								y4 = Math.cos(angle-Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + enemies[i].yPos;
+								shape.beginPath();
+								shape.moveTo(x1,y1);
+								shape.lineTo(x2,y2);
+								shape.lineTo(x3,y3);
+								shape.lineTo(x4,y4);
+								shape.lineTo(x1,x2);
+								shape.fill();
+								shape.stroke();
+								shape.closePath();
+								
+								shape.beginPath()
+								shape.arc(enemies[i].xPos,enemies[i].yPos,5,0,Math.PI*2);
+								shape.fill();
+								shape.stroke();
+								shape.closePath();
+								
+								enemies[i].cooldown++;
+								if(enemies[i].cooldown >= 25) {
+									enemies.push(new EnemyBullet(enemies[i].xPos,enemies[i].yPos,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3);
+									
+									enemies[i].cooldown = 0;
+								}
+
 							}
 						}
 						playerCollision(i);
