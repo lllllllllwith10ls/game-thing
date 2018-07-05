@@ -18,7 +18,7 @@
 				yPos: 200,
 				vX: 0,
 				vY: 0,
-				reload: 10,
+				reload: 20,
 				cooldown: 0,
 				damage: 1,
 				lives: 3
@@ -316,9 +316,9 @@
 							shapes.stroke();
 							shapes.closePath();
 							enemies[i].cooldown++;
-							if(enemies[i].health <= 50) {
+							if(enemies[i].health <= 100) {
 								if(enemies[i].cooldown >= 10) {
-									enemies.push(new Crasher(x,y,0,0));
+									enemies.push(new Crasher(x+(Math.random()-0.5)*20,y+(Math.random()-0.5)*20,0,0));
 									enemies[i].cooldown = 0;
 								}
 							} else {
