@@ -151,7 +151,7 @@
 				}
 				let canvas = theGame.canvas;
 				let shapes = canvas.getContext("2d");
-				shapes.fillStyle = "#000000";
+				shapes.fillStyle = "#FFFFFF";
 				let angle = Math.atan2(player.xPos-mouse.x,player.yPos-mouse.y);
 				let xlength = Math.sin(angle+Math.PI/2)*5+player.xPos;
 				let ylength = Math.cos(angle+Math.PI/2)*5+player.yPos;
@@ -167,10 +167,12 @@
 				shapes.lineTo(xlength3,ylength3);
 				shapes.lineTo(xlength4,ylength4);
 				shapes.stroke();
+				shapes.fill();
 				shapes.closePath();
 				shapes.beginPath();
 				shapes.arc(player.xPos,player.yPos,10,0,2*Math.PI);
 				shapes.stroke();
+				shapes.fill();
 				shapes.closePath();
 				for(let i = 0; i < bullets.length; i++) {
 					if(bullets[i].dead !== true) {
@@ -202,6 +204,7 @@
 							shapes.lineTo(xlength3,ylength3);
 							shapes.lineTo(xlength,ylength);
 							shapes.stroke();
+							shapes.fill();
 							shapes.closePath();
 						}
 						if(enemies[i].name === "big crasher") {
@@ -223,6 +226,7 @@
 							shapes.lineTo(xlength3,ylength3);
 							shapes.lineTo(xlength,ylength);
 							shapes.stroke();
+							shapes.fill();
 							shapes.closePath();
 						}
 						if(enemies[i].name === "splitter") {
@@ -264,6 +268,7 @@
 							shapes.lineTo(xlength6,ylength6);
 							shapes.lineTo(xlength,ylength);
 							shapes.stroke();
+							shapes.fill();
 							shapes.closePath();
 						}
 						if(enemies[i].name === "spawner boss") {
@@ -308,6 +313,7 @@
 							shapes.lineTo(x8,y8);
 							shapes.lineTo(x1,y1);
 							shapes.stroke();
+							shapes.fill();
 							shapes.closePath();
 							enemies[i].cooldown++;
 							if(enemies[i].health <= 50) {
@@ -363,6 +369,8 @@
 				}
 				document.getElementById("lives").innerHTML = "Lives: " + player.lives;
 				document.getElementById("wave number").innerHTML = "Wave: " + wavenum;
+				
+				shapes.fillStyle = "#000000";
 				if(player.lives <= 0) {
 					theGame.stop();
 					theGame.clear();
