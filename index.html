@@ -416,7 +416,7 @@
 							if(enemies[i].name === "shooter") {
 								enemies[i].angle = -atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos))+90;
 								enemies[i].angle2 += 4;
-								var angle = enemies[i].angle2;
+								let angle = enemies[i].angle2;
 								let x1 = Math.sin(angle-90)*-10 + enemies[i].xPos;
 								let y1 = Math.cos(angle-90)*-10 + enemies[i].yPos;
 								let x2 = Math.sin(angle)*-10 + enemies[i].xPos;
