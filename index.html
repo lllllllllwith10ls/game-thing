@@ -254,8 +254,8 @@
 							shapes.beginPath();
 							shapes.moveTo(0,380);
 							shapes.lineTo(400,380);
-							shapes.moveTo(400*(enemies[i].health/200),380);
-							shapes.lineTo(400*(enemies[i].health/200),400);
+							shapes.moveTo(400*(enemies[i].health/300),380);
+							shapes.lineTo(400*(enemies[i].health/300),400);
 							shapes.stroke();
 							shapes.closePath;
 							
@@ -295,7 +295,7 @@
 							shapes.closePath();
 							enemies[i].cooldown++;
 							if(enemies[i].health <= 50) {
-								if(enemies[i].cooldown >= 20) {
+								if(enemies[i].cooldown >= 10) {
 									enemies.push(new Crasher(x,y,0,0));
 									enemies[i].cooldown = 0;
 								}
@@ -427,7 +427,7 @@
 					}
 				}
 				if(wavenum === 15) {
-					enemies.push(new SpawnerBoss(0,200,0,0));
+					enemies.push(new SpawnerBoss(200,0,0,0));
 					
 				}
 				player.damage += 0.2;
