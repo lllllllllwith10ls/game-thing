@@ -365,14 +365,6 @@
 							}
 						}
 						if(enemies[i].name === "mini spawner") {
-							shapes.beginPath();
-							shapes.moveTo(0,380);
-							shapes.lineTo(400,380);
-							shapes.moveTo(400*(enemies[i].health/300),380);
-							shapes.lineTo(400*(enemies[i].health/300),400);
-							shapes.stroke();
-							shapes.closePath;
-							
 							let x = enemies[i].xPos;
 							let y = enemies[i].yPos;
 							enemies[i].angle = -Math.atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos))+Math.PI;
