@@ -64,7 +64,7 @@ const entityUpdate = () => {
 				let angle = Math.atan2(player.xPos-enemies[i].xPos,player.yPos-enemies[i].yPos);
 				enemies[i].vX += Math.sin(angle) * enemies[i].accel;
 				enemies[i].vY += Math.cos(angle) * enemies[i].accel;
-				if(sqrt(pow(enemies[i].xPos-player.xPos,2)+pow(enemies[i].yPos-player.yPos,2)) < 100) {
+				if(Math.sqrt(Math.pow(enemies[i].xPos-player.xPos,2)+Math.pow(enemies[i].yPos-player.yPos,2)) < 100) {
 					enemies[i].vX += (enemies[i].xPos-player.xPos)/div;
 					enemies[i].vY += (enemies[i].yPos-player.yPos)/div;
 
