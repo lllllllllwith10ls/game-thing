@@ -297,6 +297,7 @@
 							if(enemies[i].health <= 50) {
 								if(enemies[i].cooldown >= 20) {
 									enemies.push(new Crasher(x,y,0,0));
+									enemies[i].cooldown = 0;
 								}
 							} else {
 								if(enemies[i].cooldown >= 100) {
@@ -306,31 +307,31 @@
 										for(var j = 1; j <= 9; j++) {
 										
 											if(j === 1) {
-												enemies.push(new Crasher(x-10,y-10,0,0));
+												enemies.push(new Crasher(x-20,y-20,0,0));
 											}
 											if(j === 2) {
-												enemies.push(new Crasher(x,y-10,0,0));
+												enemies.push(new Crasher(x,y-20,0,0));
 											}
 											if(j === 3) {
-												enemies.push(new Crasher(x+10,y-10,0,0));
+												enemies.push(new Crasher(x+20,y-20,0,0));
 											}
 											if(j === 4) {
-												enemies.push(new Crasher(x-10,y,0,0));
+												enemies.push(new Crasher(x-20,y,0,0));
 											}
 											if(j === 5) {
 												enemies.push(new Crasher(x,y,0,0));
 											}
 											if(j === 6) {
-												enemies.push(new Crasher(x+10,y,0,0));
+												enemies.push(new Crasher(x+20,y,0,0));
 											}
 											if(j === 7) {
-												enemies.push(new Crasher(x-10,y+10,0,0));
+												enemies.push(new Crasher(x-20,y+20,0,0));
 											}
 											if(j === 8) {
-												enemies.push(new Crasher(x,y+10,0,0));
+												enemies.push(new Crasher(x,y+20,0,0));
 											}
 											if(j === 9) {
-												enemies.push(new Crasher(x+10,y+10,0,0));
+												enemies.push(new Crasher(x+20,y+20,0,0));
 											};
 										}
 									} else if(type <= 2 && type > 1) {
