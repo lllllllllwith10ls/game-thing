@@ -166,13 +166,13 @@
 				shapes.lineTo(xlength2,ylength2);
 				shapes.lineTo(xlength3,ylength3);
 				shapes.lineTo(xlength4,ylength4);
-				shapes.stroke();
 				shapes.fill();
+				shapes.stroke();
 				shapes.closePath();
 				shapes.beginPath();
 				shapes.arc(player.xPos,player.yPos,10,0,2*Math.PI);
-				shapes.stroke();
 				shapes.fill();
+				shapes.stroke();
 				shapes.closePath();
 				for(let i = 0; i < bullets.length; i++) {
 					if(bullets[i].dead !== true) {
@@ -203,8 +203,8 @@
 							shapes.lineTo(xlength2,ylength2);
 							shapes.lineTo(xlength3,ylength3);
 							shapes.lineTo(xlength,ylength);
-							shapes.stroke();
 							shapes.fill();
+							shapes.stroke();
 							shapes.closePath();
 						}
 						if(enemies[i].name === "big crasher") {
@@ -225,8 +225,8 @@
 							shapes.lineTo(xlength2,ylength2);
 							shapes.lineTo(xlength3,ylength3);
 							shapes.lineTo(xlength,ylength);
-							shapes.stroke();
 							shapes.fill();
+							shapes.stroke();
 							shapes.closePath();
 						}
 						if(enemies[i].name === "splitter") {
@@ -252,38 +252,23 @@
 							shapes.moveTo(x,y);
 							shapes.lineTo(xlength,ylength);
 							shapes.lineTo(xlength2,ylength2);
-							shapes.stroke();
-							shapes.fill();
-							shapes.closePath();
 							shapes.moveTo(x,y);
 							shapes.lineTo(xlength2,ylength2);
 							shapes.lineTo(xlength3,ylength3);
-							shapes.stroke();
-							shapes.fill();
-							shapes.closePath();
 							shapes.moveTo(x,y);
 							shapes.lineTo(xlength3,ylength3);
 							shapes.lineTo(xlength4,ylength4);
-							shapes.stroke();
-							shapes.fill();
-							shapes.closePath();
 							shapes.moveTo(x,y);
 							shapes.lineTo(xlength4,ylength4);
 							shapes.lineTo(xlength5,ylength5);
-							shapes.stroke();
-							shapes.fill();
-							shapes.closePath();
 							shapes.moveTo(x,y);
 							shapes.lineTo(xlength5,ylength5);
 							shapes.lineTo(xlength6,ylength6);
-							shapes.stroke();
-							shapes.fill();
-							shapes.closePath();
 							shapes.moveTo(x,y);
 							shapes.lineTo(xlength6,ylength6);
 							shapes.lineTo(xlength,ylength);
-							shapes.stroke();
 							shapes.fill();
+							shapes.stroke();
 							shapes.closePath();
 						}
 						if(enemies[i].name === "spawner boss") {
@@ -327,8 +312,8 @@
 							shapes.lineTo(x7,y7);
 							shapes.lineTo(x8,y8);
 							shapes.lineTo(x1,y1);
-							shapes.stroke();
 							shapes.fill();
+							shapes.stroke();
 							shapes.closePath();
 							enemies[i].cooldown++;
 							if(enemies[i].health <= 50) {
