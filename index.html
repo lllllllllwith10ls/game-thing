@@ -286,6 +286,52 @@
 							shapes.lineTo(x1,y1);
 							shapes.stroke();
 							shapes.closePath();
+							
+							if(enemies[i].health <= 50) {
+								if(enemies[i].cooldown >= 20) {
+									enemies.push(new Crasher(x,y,0,0));
+								}
+							} else {
+								if(enemies[i].cooldown >= 100) {
+									enemies[i].cooldown = 0;
+									var type = round(random(0.5,3.5));
+									if(type === 1) {
+										for(var j = 1; j <= 9; j++) {
+										
+										if(j === 1) {
+											enemies.push(new Crasher(x-10,y-10,0,0));
+										}
+										if(j === 2) {
+											enemies.push(new Crasher(x,y-10,0,0));
+										}
+										if(j === 3) {
+											enemies.push(new Crasher(x+10,y-10,0,0));
+										}
+										if(j === 4) {
+											enemies.push(new Crasher(x-10,y,0,0));
+										}
+										if(j === 5) {
+											enemies.push(new Crasher(x,y,0,0));
+										}
+										if(j === 6) {
+											enemies.push(new Crasher(x+10,y,0,0));
+										}
+										if(j === 7) {
+											enemies.push(new Crasher(x-10,y+10,0,0));
+										}
+										if(j === 8) {
+											enemies.push(new Crasher(x,y+10,0,0));
+										}
+										if(j === 9) {
+											enemies.push(new Crasher(x+10,y+10,0,0));
+										};
+									}
+								} else if(type === 2) {
+									enemies.push(new BigCrasher(x,y,0,0));
+								} else if(type === 3) {
+									enemies.push(new Splitter(x,y,0,0));
+								}
+							}
 						}
 						playerCollision(i);
 					}
