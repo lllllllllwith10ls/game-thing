@@ -107,7 +107,8 @@ const enemyCollision = (e1,e2) => {
 		enemies[e1].xPos - enemies[e1].hitbox < enemies[e2].xPos + enemies[e2].hitbox &&
 		enemies[e1].xPos + enemies[e1].hitbox > enemies[e2].xPos - enemies[e2].hitbox &&
 		enemies[e1].yPos - enemies[e1].hitbox < enemies[e2].yPos + enemies[e2].hitbox &&
-		enemies[e1].yPos + enemies[e1].hitbox > enemies[e2].yPos - enemies[e2].hitbox
+		enemies[e1].yPos + enemies[e1].hitbox > enemies[e2].yPos - enemies[e2].hitbox &&
+		enemeis[e1].ghost != true && enemeis[e2].ghost != true
 	) {
 		let angle = Math.atan2(enemies[e1].xPos-enemies[e2].xPos,enemies[e1].yPos-enemies[e2].yPos);
 		enemies[e1].vX += Math.sin(angle) * enemies[e1].accel;
@@ -192,6 +193,7 @@ class SpawnerBoss {
 		this.angle = 0;
 		this.cooldown = 0;
 		this.stopwaves = true;
+		this.ghost = true;
 	}
 };
 
