@@ -350,8 +350,13 @@
 				if(player.lives <= 0) {
 					theGame.stop();
 					theGame.clear();
+					shapes.font="10px Arial";
 					shapes.fillText("you died lol",175,200);
 					
+				}
+				if(wavenum === 14 && waves > 250) {
+					ctx.font="30px Arial";
+					ctx.fillText("BOSS FIGHT",175,200);
 				}
 				
 			}
