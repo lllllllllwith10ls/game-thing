@@ -244,6 +244,14 @@
 							shapes.closePath();
 						}
 						if(enemies[i].name === "spawner boss") {
+							shapes.beginPath();
+							shapes.moveTo(0,380);
+							shapes.lineTo(400,380);
+							shapes.moveTo(400*(enemies[i].health/200),380);
+							shapes.lineTo(400*(enemies[i].health/200),400);
+							shapes.stroke();
+							shapes.closePath;
+							
 							let x = enemies[i].xPos;
 							let y = enemies[i].yPos;
 							enemies[i].angle = -Math.atan2((enemies[i].yPos-player.yPos),(enemies[i].xPos-player.xPos))+Math.PI;
