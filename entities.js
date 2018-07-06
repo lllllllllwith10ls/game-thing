@@ -301,6 +301,7 @@ class ShooterBoss {
 		this.attack = "none";
 		this.reload = 10;
 		this.reloadCooldown = 0;
+		this.stopwaves = true;
 	}
 };
 
