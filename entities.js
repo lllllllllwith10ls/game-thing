@@ -300,6 +300,7 @@ class ShooterBoss {
 		this.cooldown = 0;
 		this.attack = "none";
 		this.reload = 10;
+		this.reloadCooldown = 0;
 	}
 };
 
