@@ -680,7 +680,7 @@
 							if(enemies[i].attack === "spam") {
 								enemies[i].reloadCooldown++;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
-									enemies.push(new EnemyBullet(x,y,-sin(enemies[i].angle+(random()-0.5)*40)*3,-cos(enemies[i].angle+(random()-0.5)*40)*3)));
+									enemies.push(new EnemyBullet(x,y,-sin(enemies[i].angle+(random()-0.5)*40)*3,-cos(enemies[i].angle+(random()-0.5)*40)*3));
 								}
 								enemies[i].reloadCooldown = 0;
 								enemies[i].attackLength--;
