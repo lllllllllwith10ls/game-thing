@@ -605,6 +605,9 @@
 				wavenum++;
 				if(wavenum != 15) {
 					let crashers = Math.random() * 3 + 1;
+					if(wavenum > 10) {
+						crashers += Math.random() * (wavenum - 5)/5;
+					}
 					for(crashers; crashers > 0; crashers--) {
 						let side = Math.random() * 4 + 1;
 						if (side >= 1 && side < 2) {
@@ -694,6 +697,24 @@
 						}
 						if (side >= 4) {
 							enemies.push(new Shooter(Math.random()*400,400,0,0));
+						}
+					}
+				}
+				if(wavenum >= 25) {
+					let tripleShots = 1;
+					for(tripleShots; tripleShots > 0; tripleShots--) {
+						let side = Math.random() * 4 + 1;
+						if (side >= 1 && side < 2) {
+							enemies.push(new TripleShot(0,Math.random()*400,0,0));
+						}
+						if (side >= 2 && side < 3) {
+							enemies.push(new TripleShot(400,Math.random()*400,0,0));
+						}
+						if (side >= 3 && side < 4) {
+							enemies.push(new TripleShot(Math.random()*400,0,0,0));
+						}
+						if (side >= 4) {
+							enemies.push(new TripleShot(Math.random()*400,400,0,0));
 						}
 					}
 				}
