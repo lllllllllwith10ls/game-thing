@@ -293,7 +293,7 @@ class ShooterBoss {
 		this.dead = false;
 		this.accel = 0.001;
 		this.speed = 0.1;
-		this.health = 500;
+		this.health = 2500;
 		this.hitbox = 50;
 		this.angle = 0;
 		this.angle2 = Math.random() * 2 * Math.PI;
