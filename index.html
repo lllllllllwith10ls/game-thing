@@ -875,6 +875,10 @@
 						}
 					}
 				}
+				if(wavenum === 30) {
+					enemies.push(new ShooterBoss(200,0,0,0));
+					
+				}
 				player.damage = wavenum*0.2 + 1;
 				player.reload = Math.pow(19/20,wavenum+1) * 15;
 				if(wavenum % 5 === 0) {
