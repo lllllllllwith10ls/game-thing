@@ -791,7 +791,7 @@
 						enemies.push(new MiniSpawner(Math.random()*400,0,0,0));
 					}
 				}
-				if(wavenum >= 20) {
+				if(wavenum >= 20 && wavenum !== 30) {
 					let shooters = Math.random() * 2;
 					for(shooters; shooters > 0; shooters--) {
 						enemies.push(new Shooter(Math.random()*400,0,0,0));
