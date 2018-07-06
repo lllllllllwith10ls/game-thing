@@ -638,7 +638,7 @@
 
 							enemies[i].cooldown++;
 							enemies[i].cooldown++;
-							if(enemies[i].health <= 500 && enemies[i].cooldown >= 2) {
+							if(enemies[i].health <= 500 && enemies[i].cooldown >= 5) {
 								var attack = Math.random()*3;
 
 								if(attack <= 1) {
@@ -686,7 +686,7 @@
 								enemies[i].attackLength--;
 								enemies[i].cooldown = 0;
 								if(enemies[i].attackLength <= 0) {
-								enemies[i].attack = "none";
+									enemies[i].attack = "none";
 								}
 							}
 							if(enemies[i].attack === "shotgun") {
