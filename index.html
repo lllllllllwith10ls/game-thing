@@ -680,7 +680,7 @@
 							if(enemies[i].attack === "spam") {
 								enemies[i].reloadCooldown++;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
-									enemies.push(new EnemyBullet(x,y,-sin(enemies[i].angle+(random()-0.5)*40)*3,-cos(enemies[i].angle+(random()-0.5)*40)*3));
+									enemies.push(new EnemyBullet(x,y,-sin(enemies[i].angle+(random()-0.5)*40)*3,-cos(enemies[i].angle+(random()-0.5)*40)*3)));
 								}
 								enemies[i].reloadCooldown = 0;
 								enemies[i].attackLength--;
@@ -688,13 +688,12 @@
 								if(enemies[i].attackLength <= 0) {
 								enemies[i].attack = "none";
 								}
-
 							}
 							if(enemies[i].attack === "shotgun") {
 								enemies[i].reloadCooldown++;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
 									for(var j = 0; j < random()*5+5; j++) {
-										enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+Math.random()-0.5*20)*(Math.random()*2+2),-cos(enemies[i].angle+Math.random()-0.5*20)*(Math.random()*2+2));
+										enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+Math.random()-0.5*20)*(Math.random()*2+2),-cos(enemies[i].angle+Math.random()-0.5*20)*(Math.random()*2+2)));
 									}
 								}
 								enemies[i].attackLength--;
