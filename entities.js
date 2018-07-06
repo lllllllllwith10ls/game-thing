@@ -63,17 +63,11 @@ const entityUpdate = () => {
 			if(enemies[i].behavior === "strafer") {
 				let angle = Math.atan2(player.xPos-enemies[i].xPos,player.yPos-enemies[i].yPos);
 				if(Math.sqrt(Math.pow(enemies[i].xPos-player.xPos,2)+Math.pow(enemies[i].yPos-player.yPos,2)) < 100) {
-					enemies[i].vX += Math.sin(angle) * enemies[i].accel;
-					enemies[i].vY += Math.cos(angle) * enemies[i].accel;
-					
-					enemies[i].xPos += enemies[i].vX;
-					enemies[i].yPos += enemies[i].vY;
-				} else {
 					enemies[i].vX -= Math.sin(angle) * enemies[i].accel;
 					enemies[i].vY -= Math.cos(angle) * enemies[i].accel;
-					
-					enemies[i].xPos += enemies[i].vX;
-					enemies[i].yPos += enemies[i].vY;
+				} else {
+					enemies[i].vX += Math.sin(angle) * enemies[i].accel;
+					enemies[i].vY += Math.cos(angle) * enemies[i].accel;
 				}
 			}
 			
