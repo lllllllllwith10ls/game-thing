@@ -320,6 +320,7 @@
 							if(enemies[i].health <= 100) {
 								if(enemies[i].cooldown >= 15) {
 									enemies.push(new Crasher(x+(Math.random()-0.5)*20,y+(Math.random()-0.5)*20,0,0));
+									enemies.push(new Crasher(x+(Math.random()-0.5)*20,y+(Math.random()-0.5)*20,0,0));
 									enemies[i].cooldown = 0;
 								}
 							} else {
