@@ -560,6 +560,169 @@
 							}
 
 						}
+						if(enemies[i].name === "shooter boss") {
+							shapes.beginPath();
+							shapes.moveTo(0,380);
+							shapes.lineTo(400,380);
+							shapes.moveTo(400*(enemies[i].health/300),380);
+							shapes.lineTo(400*(enemies[i].health/300),400);
+							shapes.stroke();
+							shapes.closePath;
+							
+							let x = enemies[i].xPos;
+							let y = enemies[i].yPos;
+							enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)+Math.PI/2;
+							enemies[i].angle2 += Math.PI/30;
+							let angle = enemies[i].angle2;
+							let x1 = Math.sin(angle-Math.PI/2)*-50 + x;
+							let y1 = Math.cos(angle-Math.PI/2)*-50 + y;
+							let x2 = Math.sin(angle)*-50 + x;
+							let y2 = Math.cos(angle)*-50 + y;
+							let x3 = Math.sin(angle+Math.PI/2)*-50 + x;
+							let y3 = Math.cos(angle+Math.PI/2)*-50 + y;
+							let x4 = Math.sin(angle+Math.PI)*-50 + x;
+							let y4 = Math.cos(angle+Math.PI)*-50 + y;
+							shapes.beginPath();
+							shapes.moveTo(x1,y1);
+							shapes.lineTo(x2,y2);
+							shapes.lineTo(x3,y3);
+							shapes.lineTo(x4,y4);
+							shapes.lineTo(x1,y1);
+							shapes.fill();
+							shapes.stroke();
+							shapes.closePath();
+							angle = enemies[i].angle+Math.PI/4;
+							x1 = Math.sin(angle-Math.PI/4)*-50 + x;
+							y1 = Math.cos(angle-Math.PI/4)*-50 + y;
+							x2 = Math.sin(angle+Math.PI/4)*-50 + x;
+							y2 = Math.cos(angle+Math.PI/4)*-50 + y;
+							x3 = Math.sin(angle+(3*Math.PI)/4)*-50 + x;
+							y3 = Math.cos(angle+(3*Math.PI)/4)*-50 + y;
+							x4 = Math.sin(angle-(3*Math.PI)/4)*-50 + x;
+							y4 = Math.cos(angle-(3*Math.PI)/4)*-50 + y;
+							shapes.beginPath();
+							shapes.moveTo(x1,y1);
+							shapes.lineTo(x2,y2);
+							shapes.lineTo(x3,y3);
+							shapes.lineTo(x4,y4);
+							shapes.lineTo(x1,y1);
+							shapes.fill();
+							shapes.stroke();
+							shapes.closePath();;
+							
+							angle = enemies[i].angle;
+							x1 = Math.sin(angle-90)*-10 + enemies[i].xPos;
+							y1 = Math.cos(angle-90)*-10 + enemies[i].yPos;
+							x2 = Math.sin(angle+90)*-10 + enemies[i].xPos;
+							y2 = Math.cos(angle+90)*-10 + enemies[i].yPos;
+							x3 = Math.sin(angle+Math.atan2(20,30))*-Math.sqrt(Math.pow(20,2)+Math.pow(30,2)) + enemies[i].xPos;
+							y3 = Math.cos(angle+Math.atan2(20,30))*-Math.sqrt(Math.pow(20,2)+Math.pow(30,2)) + enemies[i].yPos;
+							x4 = Math.sin(angle-Math.atan2(20,30))*-Math.sqrt(Math.pow(20,2)+Math.pow(30,2)) + enemies[i].xPos;
+							y4 = Math.cos(angle-Math.atan2(20,30))*-Math.sqrt(Math.pow(20,2)+Math.pow(30,2)) + enemies[i].yPos;
+							shapes.beginPath();
+							shapes.moveTo(x1,y1);
+							shapes.lineTo(x2,y2);
+							shapes.lineTo(x3,y3);
+							shapes.lineTo(x4,y4);
+							shapes.lineTo(x1,y1);
+							shapes.fill();
+							shapes.stroke();
+							shapes.closePath();
+							
+
+							shapes.beginPath()
+							shapes.arc(x,y,12.5,0,Math.PI*2);
+							shapes.fill();
+							shapes.stroke();
+							shapes.closePath();
+
+							enemies[i].cooldown++;
+							enemies[i].cooldown++;
+							if(enemies[i].health <= 200 && enemies[i].cooldown >= 2) {
+								var attack = round(random(0.5,3.5));
+
+								if(attack === 1) {
+								enemies[i].attack = "spam";
+								enemies[i].attackLength = 50;
+								enemies[i].reload = 5;
+								}
+								if(attack === 2) {
+								enemies[i].attack = "spread";
+								enemies[i].attackLength = 50;
+								enemies[i].reload = 25;
+								}
+								if(attack === 3) {
+								enemies[i].attack = "shotgun";
+								enemies[i].attackLength = 50;
+								enemies[i].reload = 25;
+								}
+								enemies[i].cooldown = 0;
+							} else if(enemies[i].cooldown >= 25) {
+								var attack = round(random(0.5,3.5));
+
+								if(attack === 1) {
+								enemies[i].attack = "spam";
+								enemies[i].attackLength = 200;
+								enemies[i].reload = 10;
+								}
+								if(attack === 2) {
+								enemies[i].attack = "spread";
+								enemies[i].attackLength = 200;
+								enemies[i].reload = 50;
+								}
+								if(attack === 3) {
+								enemies[i].attack = "shotgun";
+								enemies[i].attackLength = 200;
+								enemies[i].reload = 50;
+								}
+								enemies[i].cooldown = 0;
+							}
+							if(enemies[i].attack === "spam") {
+								enemies[i].reloadCooldown++;
+								if(enemies[i].reloadCooldown >= enemies[i].reload) {
+									enemies.push(x,y,-sin(enemies[i].angle+(random()-0.5)*40)*3,-cos(enemies[i].angle+(random()-0.5)*40)*3));
+								}
+								enemies[i].reloadCooldown = 0;
+								enemies[i].attackLength--;
+								enemies[i].cooldown = 0;
+								if(enemies[i].attackLength <= 0) {
+								enemies[i].attack = "none";
+								}
+
+							}
+							if(enemies[i].attack === "shotgun") {
+								enemies[i].reloadCooldown++;
+								if(enemies[i].reloadCooldown >= enemies[i].reload) {
+									for(var j = 0; j < random()*5+5; j++) {
+										enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+Math.random()-0.5*20)*(Math.random()*2+2),-cos(enemies[i].angle+Math.random()-0.5*20)*(Math.random()*2+2));
+									}
+								}
+								enemies[i].attackLength--;
+								enemies[i].cooldown = 0;
+								if(enemies[i].attackLength <= 0) {
+								enemies[i].attack = "none";
+								}
+
+							}
+							if(enemies[i].attack === "spread") {
+								enemies[i].reloadCooldown++;
+								if(enemies[i].reloadCooldown >= enemies[i].reload) {
+									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+Math.PI/4)*3,-Math.cos(enemies[i].angle+Math.PI/4)*3));
+									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle-Math.PI/4)*3,-Math.cos(enemies[i].angle-Math.PI/4)*3));
+									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+Math.PI/8)*3,-Math.cos(enemies[i].angle+Math.PI/8)*3));
+									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle-Math.PI/8)*3,-Math.cos(enemies[i].angle-Math.PI/8)*3));
+									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
+
+								}
+								enemies[i].attackLength--;
+								enemies[i].cooldown = 0;
+								if(enemies[i].attackLength <= 0) {
+									enemies[i].attack = "none";
+								}
+
+							}
+
+						}
 						playerCollision(i);
 					}
 				}
