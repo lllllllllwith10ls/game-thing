@@ -318,7 +318,7 @@
 							shapes.stroke();
 							shapes.closePath();
 							enemies[i].cooldown++;
-							if(enemies[i].health <= 100) {
+							if(enemies[i].health <= 500) {
 								if(enemies[i].cooldown >= 20) {
 									enemies.push(new Crasher(x+(Math.random()-0.5)*20,y+(Math.random()-0.5)*20,0,0));
 									enemies.push(new Crasher(x+(Math.random()-0.5)*20,y+(Math.random()-0.5)*20,0,0));
