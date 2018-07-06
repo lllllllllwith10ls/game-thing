@@ -680,8 +680,8 @@
 							if(enemies[i].attack === "spam") {
 								enemies[i].reloadCooldown++;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
-									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+(Math.random()-0.5)*40)*3,-Math.cos(enemies[i].angle+(Math.random()-0.5)*40)*3));
-									//enemies[i].reloadCooldown = 0;
+									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+(Math.random()-0.5)*Math.PI/9)*3,-Math.cos(enemies[i].angle+(Math.random()-0.5)*Math.PI/9)*3));
+									enemies[i].reloadCooldown = 0;
 								}
 								enemies[i].attackLength--;
 								enemies[i].cooldown = 0;
@@ -694,8 +694,8 @@
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
 									for(var j = 0; j < Math.random()*5+5; j++) {
 										enemies.push(new EnemyBullet(x,y,Math.sin(enemies[i].angle+Math.random()-0.5*20)*(Math.random()*2+2),Math.cos(enemies[i].angle+Math.random()-0.5*20)*(Math.random()*2+2)));
-										//enemies[i].reloadCooldown = 0;
 									}
+									enemies[i].reloadCooldown = 0;
 								}
 								enemies[i].attackLength--;
 								enemies[i].cooldown = 0;
@@ -712,7 +712,7 @@
 									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+Math.PI/8)*3,-Math.cos(enemies[i].angle+Math.PI/8)*3));
 									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle-Math.PI/8)*3,-Math.cos(enemies[i].angle-Math.PI/8)*3));
 									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
-									//enemies[i].reloadCooldown = 0;
+									enemies[i].reloadCooldown = 0;
 								}
 								enemies[i].attackLength--;
 								enemies[i].cooldown = 0;
