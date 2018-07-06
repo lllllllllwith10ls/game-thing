@@ -255,9 +255,27 @@ class Shooter {
 		this.vX = vx;
 		this.vY = vy;
 		this.dead = false;
-		this.accel = 0.1;
-		this.speed = 1;
+		this.accel = 0.05;
+		this.speed = 0.5;
 		this.health = 10;
+		this.hitbox = 10;
+		this.angle = 0;
+		this.angle2 = Math.random() * 2 * Math.PI;
+		this.cooldown = 0;
+	}
+};
+class TripleShot {
+	constructor(x,y,vx,vy) {
+		this.name = "triple shot";
+		this.behavior = "strafer";
+		this.xPos = x;
+		this.yPos = y;
+		this.vX = vx;
+		this.vY = vy;
+		this.dead = false;
+		this.accel = 0.05;
+		this.speed = 0.5;
+		this.health = 20;
 		this.hitbox = 10;
 		this.angle = 0;
 		this.angle2 = Math.random() * 2 * Math.PI;
