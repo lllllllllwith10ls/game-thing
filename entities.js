@@ -282,6 +282,26 @@ class TripleShot {
 		this.cooldown = 0;
 	}
 };
+class ShooterBoss {
+	constructor(x,y,vx,vy) {
+		this.name = "shooter boss";
+		this.behavior = "strafer";
+		this.xPos = x;
+		this.yPos = y;
+		this.vX = vx;
+		this.vY = vy;
+		this.dead = false;
+		this.accel = 0.001;
+		this.speed = 0.1;
+		this.health = 500;
+		this.hitbox = 50;
+		this.angle = 0;
+		this.angle2 = Math.random() * 2 * Math.PI;
+		this.cooldown = 0;
+		this.attack = "none";
+		this.reload = 10;
+	}
+};
 
 
 
