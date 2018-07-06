@@ -88,7 +88,7 @@ const entityUpdate = () => {
 	for(var i = 0; i <= enemies.length-1; i++) {
 		if(enemies[i].dead === true) {
 			if(enemies[i].name === "splitter") {
-				let crashers = Math.random() * 3 + 3;
+				let crashers = Math.random() * 3 + 1;
 				for(crashers; crashers > 0; crashers--) {
 					enemies.push(new Crasher(enemies[i].xPos+(Math.random()-0.5)*10,enemies[i].yPos+(Math.random()-0.5)*10,0,0));
 				}
