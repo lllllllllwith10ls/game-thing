@@ -712,8 +712,8 @@
 						}
 					}
 				}
-				player.damage += 0.2;
-				player.reload *= 19/20;
+				player.damage = wavenum*0.2 + 1;
+				player.reload = Math.pow(19/20,wavenum+1) * 15;
 				if(wavenum % 5 === 0) {
 					player.lives++;
 				}
