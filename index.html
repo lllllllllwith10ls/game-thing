@@ -406,69 +406,69 @@
 								enemies.push(new Crasher(x,y,0,0));
 								enemies[i].cooldown = 0;
 							}
-							if(enemies[i].name === "enemy bullet") {
-								shapes.beginPath();
-								shapes.arc(enemies[i].xPos,enemies[i].yPos,2.5,0,2*Math.PI);
-								shapes.fill();
-								shapes.stroke();
-								shapes.closePath();
-							}
-							if(enemies[i].name === "shooter") {
-								let x = enemies[i].xPos;
-								let y = enemies[i].yPos;
-								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)+Math.PI/4;
-								enemies[i].angle2 += Math.PI/30;
-								let angle = enemies[i].angle2;
-								let x1 = Math.sin(angle-Math.PI/2)*-10 + x;
-								let y1 = Math.cos(angle-Math.PI/2)*-10 + y;
-								let x2 = Math.sin(angle)*-10 + x;
-								let y2 = Math.cos(angle)*-10 + y;
-								let x3 = Math.sin(angle+Math.PI/2)*-10 + x;
-								let y3 = Math.cos(angle+Math.PI/2)*-10 + y;
-								let x4 = Math.sin(angle+Math.PI)*-10 + x;
-								let y4 = Math.cos(angle+Math.PI)*-10 + y;
-								shapes.beginPath();
-								shapes.moveTo(x1,y1);
-								shapes.lineTo(x2,y2);
-								shapes.lineTo(x3,y3);
-								shapes.lineTo(x4,y4);
-								shapes.lineTo(x1,x1);
-								shapes.fill();
-								shapes.stroke();
-								shapes.closePath();
-								angle = enemies[i].angle;
-								x1 = Math.sin(angle-Math.PI/2)*-2 + x;
-								y1 = Math.cos(angle-Math.PI/2)*-2 + y
-								x2 = Math.sin(angle+Math.PI/2)*-2 + x;
-								y2 = Math.cos(angle+Math.PI/2)*-2 + y
-								x3 = Math.sin(angle+Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + x;
-								y3 = Math.cos(angle+Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + y;
-								x4 = Math.sin(angle-Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + x;
-								y4 = Math.cos(angle-Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + y;
-								shapes.beginPath();
-								shapes.moveTo(x1,y1);
-								shapes.lineTo(x2,y2);
-								shapes.lineTo(x3,y3);
-								shapes.lineTo(x4,y4);
-								shapes.lineTo(x1,x1);
-								shapes.fill();
-								shapes.stroke();
-								shapes.closePath();
-								
-								shapes.beginPath()
-								shapes.arc(x,y,5,0,Math.PI*2);
-								shapes.fill();
-								shapes.stroke();
-								shapes.closePath();
-								
-								enemies[i].cooldown++;
-								if(enemies[i].cooldown >= 25) {
-									enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
-									
-									enemies[i].cooldown = 0;
-								}
+						}
+						if(enemies[i].name === "enemy bullet") {
+							shapes.beginPath();
+							shapes.arc(enemies[i].xPos,enemies[i].yPos,2.5,0,2*Math.PI);
+							shapes.fill();
+							shapes.stroke();
+							shapes.closePath();
+						}
+						if(enemies[i].name === "shooter") {
+							let x = enemies[i].xPos;
+							let y = enemies[i].yPos;
+							enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)+Math.PI/4;
+							enemies[i].angle2 += Math.PI/30;
+							let angle = enemies[i].angle2;
+							let x1 = Math.sin(angle-Math.PI/2)*-10 + x;
+							let y1 = Math.cos(angle-Math.PI/2)*-10 + y;
+							let x2 = Math.sin(angle)*-10 + x;
+							let y2 = Math.cos(angle)*-10 + y;
+							let x3 = Math.sin(angle+Math.PI/2)*-10 + x;
+							let y3 = Math.cos(angle+Math.PI/2)*-10 + y;
+							let x4 = Math.sin(angle+Math.PI)*-10 + x;
+							let y4 = Math.cos(angle+Math.PI)*-10 + y;
+							shapes.beginPath();
+							shapes.moveTo(x1,y1);
+							shapes.lineTo(x2,y2);
+							shapes.lineTo(x3,y3);
+							shapes.lineTo(x4,y4);
+							shapes.lineTo(x1,x1);
+							shapes.fill();
+							shapes.stroke();
+							shapes.closePath();
+							angle = enemies[i].angle;
+							x1 = Math.sin(angle-Math.PI/2)*-2 + x;
+							y1 = Math.cos(angle-Math.PI/2)*-2 + y
+							x2 = Math.sin(angle+Math.PI/2)*-2 + x;
+							y2 = Math.cos(angle+Math.PI/2)*-2 + y
+							x3 = Math.sin(angle+Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + x;
+							y3 = Math.cos(angle+Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + y;
+							x4 = Math.sin(angle-Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + x;
+							y4 = Math.cos(angle-Math.atan2(2,5))*-Math.sqrt(Math.pow(2,2)+Math.pow(5,2)) + y;
+							shapes.beginPath();
+							shapes.moveTo(x1,y1);
+							shapes.lineTo(x2,y2);
+							shapes.lineTo(x3,y3);
+							shapes.lineTo(x4,y4);
+							shapes.lineTo(x1,x1);
+							shapes.fill();
+							shapes.stroke();
+							shapes.closePath();
 
+							shapes.beginPath()
+							shapes.arc(x,y,5,0,Math.PI*2);
+							shapes.fill();
+							shapes.stroke();
+							shapes.closePath();
+
+							enemies[i].cooldown++;
+							if(enemies[i].cooldown >= 25) {
+								enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
+
+								enemies[i].cooldown = 0;
 							}
+
 						}
 						playerCollision(i);
 					}
