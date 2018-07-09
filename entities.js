@@ -157,7 +157,7 @@ class Crasher {
 		this.dead = false;
 		this.accel = 0.1;
 		this.speed = 2;
-		this.health = 2.5+wavenum/15;
+		this.health = 2.5+wavenum/20;
 		this.hitbox = 10;
 		this.angle = 0;
 	}
@@ -173,7 +173,7 @@ class BigCrasher {
 		this.dead = false;
 		this.accel = 0.05;
 		this.speed = 1;
-		this.health = 15+wavenum/5;
+		this.health = 15+wavenum/10;
 		this.hitbox = 15;
 		this.angle = 0;
 	}
@@ -189,7 +189,7 @@ class Splitter {
 		this.dead = false;
 		this.accel = 0.05;
 		this.speed = 1;
-		this.health = 7.5+wavenum/10;
+		this.health = 7.5+wavenum/15;
 		this.hitbox = 10;
 		this.angle = Math.random() * 2 * Math.PI;
 	}
@@ -224,7 +224,7 @@ class MiniSpawner {
 		this.dead = false;
 		this.accel = 0.05;
 		this.speed = 1;
-		this.health = 7.5+wavenum/10;
+		this.health = 7.5+wavenum/15;
 		this.hitbox = 10;
 		this.angle = 0;
 		this.cooldown = 0;
