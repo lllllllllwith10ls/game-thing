@@ -762,21 +762,31 @@
 				wavenum++;
 				if(wavenum != 15 && wavenum !== 30) {
 					let crashers = Math.random() * 3 + 1;
-					if(wavenum > 10) {
-						crashers -= Math.random() * (wavenum - 5)/10;
+					if(wavenum > 10 && wavenum < 30) {
+						crashers -= Math.random() * (wavenum - 10)/10;
+						
+					}
+					if(wavenum > 30) {
+						crashers += Math.random() * (wavenum - 40)/20;
 					}
 					for(crashers; crashers > 0; crashers--) {
 						enemies.push(new Crasher(Math.random()*400,0,0,0));
 					}
 				}
 				if(wavenum >= 5 && wavenum !== 30) {
-					let bigcrashers = Math.random() * 2;
-					for(bigcrashers; bigcrashers > 0; bigcrashers--) {
+					let bigCrashers = Math.random() * 2;
+					if(wavenum > 30) {
+						bigCrashers += Math.random() * (wavenum - 30)/75;
+					}
+					for(bigCrashers; bigCrashers > 0; bigCrashers--) {
 						enemies.push(new BigCrasher(Math.random()*400,0,0,0));
 					}
 				}
 				if(wavenum >= 10 && wavenum != 15 && wavenum !== 30) {
 					let splitters = Math.random() * 2;
+					if(wavenum > 30) {
+						splitters += Math.random() * (wavenum - 30)/100;
+					}
 					for(splitters; splitters > 0; splitters--) {
 						enemies.push(new Splitter(Math.random()*400,0,0,0));
 					}
@@ -787,18 +797,27 @@
 				}
 				if(wavenum >= 16 && wavenum !== 30) {
 					let miniSpawners = Math.random() * 2;
+					if(wavenum > 30) {
+						miniSpawners += Math.random() * (wavenum - 30)/100;
+					}
 					for(miniSpawners; miniSpawners > 0; miniSpawners--) {
 						enemies.push(new MiniSpawner(Math.random()*400,0,0,0));
 					}
 				}
 				if(wavenum >= 20 && wavenum !== 30) {
 					let shooters = Math.random() * 2;
+					if(wavenum > 30) {
+						shooters += Math.random() * (wavenum - 30)/200;
+					}
 					for(shooters; shooters > 0; shooters--) {
 						enemies.push(new Shooter(Math.random()*400,0,0,0));
 					}
 				}
 				if(wavenum >= 25) {
 					let tripleShots = 1;
+					if(wavenum > 30) {
+						tripleShots += Math.random() * (wavenum - 30)/500;
+					}
 					for(tripleShots; tripleShots > 0; tripleShots--) {
 						enemies.push(new TripleShot(Math.random()*400,0,0,0));
 					}
