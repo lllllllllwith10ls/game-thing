@@ -304,7 +304,23 @@ class ShooterBoss {
 		this.stopwaves = true;
 	}
 };
-
+class Cross {
+	constructor(x,y,vx,vy) {
+		this.name = "cross";
+		this.behavior = "strafer";
+		this.xPos = x;
+		this.yPos = y;
+		this.vX = vx;
+		this.vY = vy;
+		this.dead = false;
+		this.accel = 0.05;
+		this.speed = 0.5;
+		this.health = 25+wavenum/20;
+		this.hitbox = 10;
+		this.angle = 0;
+		this.cooldown = 0;
+	}
+};
 
 
 
