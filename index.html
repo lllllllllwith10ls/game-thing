@@ -635,8 +635,7 @@
 							shapes.fill();
 							shapes.stroke();
 							shapes.closePath();
-
-							enemies[i].cooldown++;
+							
 							enemies[i].cooldown++;
 							if(enemies[i].health <= 500 && enemies[i].cooldown >= 5) {
 								var attack = Math.random()*3;
@@ -826,9 +825,72 @@
 							shapes.stroke();
 							shapes.closePath;
 							
+							
+							
+							enemies[i].cooldown++;
+							
+							if(enemies[i].health <= 1000 && enemies[i].cooldown >= 5) {
+								var attack = Math.random();
+								
+								if(attack <= 1) {
+								enemies[i].attack = "charge";
+								enemies[i].attackLength = 3;
+								enemies[i].reload = 10;
+								}
+								if(attack <= 2 && attack > 1) {
+								enemies[i].attack = "spawn";
+								enemies[i].attackLength = 200;
+								enemies[i].reload = 50;
+								}
+								enemies[i].cooldown = 0;
+							} else if(enemies[i].cooldown >= 100) {
+								var attack = Math.random();
+								
+								if(attack <= 1) {
+								enemies[i].attack = "charge";
+								enemies[i].attackLength = 3;
+								enemies[i].reload = 50;
+								}
+								if(attack <= 2 && attack > 1) {
+								enemies[i].attack = "spawn";
+								enemies[i].attackLength = 200;
+								enemies[i].reload = 50;
+								}
+								enemies[i].cooldown = 0;
+							}
+							if(enemies[i].attack === "charge") {
+								enemies[i].reloadCooldown++;
+								enemies[i].behavior = "line";
+								if(enemies[i].reloadCooldown >= enemies[i].reload) {
+									enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
+									enemies[i].speed = 3;
+									enemies[i].vX = -Math.sin(enemies[i].angle)*3;
+									enemies[i].vX = -Math.cos(enemies[i].angle)*3;
+									enemies[i].reloadCooldown = 0;
+									enemies[i].attackLength2 = 50;
+									enemies[i].attack = "charging"
+									enemies[i].attackLength--;
+								}
+								enemies[i].cooldown = 0;
+								if(enemies[i].attackLength <= 0) {
+									enemies[i].attack = "none";
+									enemies[i].behavior = "chaser";
+								}
+							}
+							if(enemies[i].attack === "charging") {
+								enemies[i].attackLength2--;
+								enemies[i].cooldown = 0;
+								if(enemies[i].attackLength2 <= 0) {
+									enemies[i].attack = "charging";
+									enemies[i].behavior = "chaser";
+								}
+							}
+							if(enemies[i].attack === "shotgun") {
+								
+
+							}
 							let x = enemies[i].xPos;
 							let y = enemies[i].yPos;
-							enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
 							
 							let angle = enemies[i].angle;
 							
@@ -876,6 +938,7 @@
 							shapes.fill();
 							shapes.stroke();
 							shapes.closePath();
+							
 						}
 						playerCollision(i);
 					}
