@@ -349,7 +349,7 @@ class RunnerBoss {
 		this.accel = 0.05;
 		this.speed = 0.5;
 		this.health = 1000;
-		this.hitbox = 50;
+		this.hitbox = 30;
 		this.angle = 0;
 	}
 };
