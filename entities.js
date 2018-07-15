@@ -353,6 +353,7 @@ class RunnerBoss {
 		this.health = 10000;
 		this.hitbox = 30;
 		this.angle = 0;
+		this.cooldown = 100;
 		this.attack = "none";
 		this.reload = 10;
 		this.reloadCooldown = 0;
