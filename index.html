@@ -858,6 +858,9 @@
 								}
 								enemies[i].cooldown = 0;
 							}
+							if(enemies[i].attack === "none") {
+								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
+							}
 							if(enemies[i].attack === "charge") {
 								enemies[i].reloadCooldown++;
 								enemies[i].behavior = "line";
@@ -881,7 +884,7 @@
 								enemies[i].attackLength2--;
 								enemies[i].cooldown = 0;
 								if(enemies[i].attackLength2 <= 0) {
-									enemies[i].attack = "charging";
+									enemies[i].attack = "chare";
 									enemies[i].behavior = "chaser";
 								}
 							}
