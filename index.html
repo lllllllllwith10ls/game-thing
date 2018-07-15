@@ -783,6 +783,38 @@
 							}
 							
 						}
+						if(enemies[i].name === "runner") {
+							let x = enemies[i].xPos;
+							let y = enemies[i].yPos;
+							enemies[i].angle = enemies[i].angle+0.01;
+							let angle = enemies[i].angle;
+							
+							let x1 = Math.sin(angle)*3+x;
+							let y1 = Math.cos(angle)*3+y;
+							let x2 = Math.sin(angle+3*Math.PI/4)*5+x1;
+							let y2 = Math.cos(angle+3*Math.PI/4)*5+y1;
+							let x3 = Math.sin(angle+Math.PI)*5+x2;
+							let y3 = Math.cos(angle+Math.PI)*5+y2;
+							let x4 = Math.sin(angle+Math.PI/4)*5+x3;
+							let y4 = Math.cos(angle+Math.PI/4)*5+y3;
+							let x5 = Math.sin(angle-Math.PI/4)*5+x4;
+							let y5 = Math.cos(angle-Math.PI/4)*5+y4;
+							let x6 = Math.sin(angle)*5+x5;
+							let y6 = Math.cos(angle)*5+y5;
+							
+							shapes.beginPath();
+							shapes.moveTo(x1,y1);
+							shapes.lineTo(x2,y2);
+							shapes.lineTo(x3,y3);
+							shapes.lineTo(x3,y3);
+							shapes.lineTo(x4,y4);
+							shapes.lineTo(x5,y5);
+							shapes.lineTo(x6,y6);
+							shapes.lineTo(x1,y1);
+							shapes.fill();
+							shapes.stroke();
+							shapes.closePath();
+						}
 						playerCollision(i);
 					}
 				}
