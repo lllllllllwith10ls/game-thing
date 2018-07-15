@@ -346,8 +346,8 @@ class RunnerBoss {
 		this.vX = vx;
 		this.vY = vy;
 		this.dead = false;
-		this.accel = 0.005;
-		this.speed = 0.01;
+		this.accel = 0.05;
+		this.speed = 0.5;
 		this.health = 1000;
 		this.hitbox = 50;
 		this.angle = 0;
