@@ -323,7 +323,7 @@ class Cross {
 };
 class Runner {
 	constructor(x,y,vx,vy) {
-		this.name = "crasher";
+		this.name = "runner";
 		this.behavior = "chaser";
 		this.xPos = x;
 		this.yPos = y;
