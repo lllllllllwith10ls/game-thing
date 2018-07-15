@@ -331,7 +331,7 @@ class Runner {
 		this.vY = vy;
 		this.dead = false;
 		this.accel = 0.1;
-		this.speed = 2;
+		this.speed = 3;
 		this.health = 5+wavenum/20;
 		this.hitbox = 10;
 		this.angle = 0;
