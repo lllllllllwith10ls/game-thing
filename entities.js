@@ -321,6 +321,21 @@ class Cross {
 		this.cooldown = 0;
 	}
 };
-
+class Runner {
+	constructor(x,y,vx,vy) {
+		this.name = "crasher";
+		this.behavior = "chaser";
+		this.xPos = x;
+		this.yPos = y;
+		this.vX = vx;
+		this.vY = vy;
+		this.dead = false;
+		this.accel = 0.1;
+		this.speed = 2;
+		this.health = 5+wavenum/20;
+		this.hitbox = 10;
+		this.angle = 0;
+	}
+};
 
 
