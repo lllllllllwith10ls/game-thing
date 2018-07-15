@@ -927,6 +927,15 @@
 						enemies.push(new Cross(Math.random()*400,0,0,0));
 					}
 				}
+				if(wavenum >= 35) {
+					let runners = Math.random() * 3 + 1;
+					if(wavenum > 30) {
+						runners += Math.random() * (wavenum - 40)/20;
+					}
+					for(runners; runners > 0; runners--) {
+						enemies.push(new Runner(Math.random()*400,0,0,0));
+					}
+				}
 				player.damage = wavenum*0.2 + 1;
 				player.reload = Math.pow(19/20,wavenum+1) * 15;
 				if(wavenum % 5 === 0) {
