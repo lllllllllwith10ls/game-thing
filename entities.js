@@ -337,5 +337,21 @@ class Runner {
 		this.angle = 0;
 	}
 };
+class RunnerBoss {
+	constructor(x,y,vx,vy) {
+		this.name = "runner boss";
+		this.behavior = "chaser";
+		this.xPos = x;
+		this.yPos = y;
+		this.vX = vx;
+		this.vY = vy;
+		this.dead = false;
+		this.accel = 0.005;
+		this.speed = 0.01;
+		this.health = 1000;
+		this.hitbox = 50;
+		this.angle = 0;
+	}
+};
 
 
