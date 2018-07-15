@@ -774,9 +774,9 @@
 							shapes.closePath();
 							enemies[i].cooldown++;
 							if(enemies[i].cooldown >= 100) {
-								enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+Math.PI/2)*3,-Math.cos(enemies[i].angle+Math.PI/4)*3));
-								enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle-Math.PI/2)*3,-Math.cos(enemies[i].angle-Math.PI/4)*3));
-								enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+Math.PI)*3,-Math.cos(enemies[i].angle)*3));
+								enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+Math.PI/2)*3,-Math.cos(enemies[i].angle+Math.PI/2)*3));
+								enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle-Math.PI/2)*3,-Math.cos(enemies[i].angle-Math.PI/2)*3));
+								enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle+Math.PI)*3,-Math.cos(enemies[i].angle+Math.PI)*3));
 								enemies.push(new EnemyBullet(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
 								
 								enemies[i].cooldown = 0;
