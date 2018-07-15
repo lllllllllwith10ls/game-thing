@@ -855,7 +855,7 @@
 								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
 								enemies[i].reload = 50;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
-									enemies.push(new Runner(x,y,-Math.sin(enemies[i].angle)*3,Math.cos(enemies[i].angle)*3));
+									enemies.push(new Runner(x,y,Math.sin(enemies[i].angle)*3,Math.cos(enemies[i].angle)*3));
 									enemies[i].reloadCooldown = 0;
 								}
 							}
@@ -864,9 +864,9 @@
 								enemies[i].behavior = "line";
 								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
-									enemies[i].speed = 5;
-									enemies[i].vX = Math.sin(enemies[i].angle)*5;
-									enemies[i].vY = Math.cos(enemies[i].angle)*5;
+									enemies[i].speed = 6.25;
+									enemies[i].vX = Math.sin(enemies[i].angle)*6.25;
+									enemies[i].vY = Math.cos(enemies[i].angle)*6.25;
 									enemies[i].reloadCooldown = 0;
 									enemies[i].attackLength2 = 200;
 									enemies[i].attack = "charging"
