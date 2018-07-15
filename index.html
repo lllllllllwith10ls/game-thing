@@ -786,7 +786,7 @@
 						if(enemies[i].name === "runner") {
 							let x = enemies[i].xPos;
 							let y = enemies[i].yPos;
-							enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos);
+							enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)+Math.PI/2;
 							let angle = enemies[i].angle;
 							
 							let x1 = Math.sin(angle)*3+x;
