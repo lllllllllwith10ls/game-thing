@@ -930,7 +930,7 @@
 				if(wavenum >= 35) {
 					let runners = Math.random() * 3 + 1;
 					if(wavenum > 30) {
-						runners += Math.random() * (wavenum - 40)/20;
+						runners += Math.random() * (wavenum - 40)/50;
 					}
 					for(runners; runners > 0; runners--) {
 						enemies.push(new Runner(Math.random()*400,0,0,0));
