@@ -868,9 +868,9 @@
 								enemies[i].behavior = "line";
 								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
-									enemies[i].speed = 3;
-									enemies[i].vX = -Math.sin(enemies[i].angle)*3;
-									enemies[i].vX = -Math.cos(enemies[i].angle)*3;
+									enemies[i].speed = 5;
+									enemies[i].vX = -Math.sin(enemies[i].angle)*5;
+									enemies[i].vX = -Math.cos(enemies[i].angle)*5;
 									enemies[i].reloadCooldown = 0;
 									enemies[i].attackLength2 = 50;
 									enemies[i].attack = "charging"
@@ -888,6 +888,7 @@
 								if(enemies[i].attackLength2 <= 0) {
 									enemies[i].attack = "charge";
 									enemies[i].behavior = "chaser";
+									enemies[i].speed = 1;
 								}
 							}
 							if(enemies[i].attack === "shotgun") {
