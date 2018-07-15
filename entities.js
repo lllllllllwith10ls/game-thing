@@ -350,12 +350,12 @@ class RunnerBoss {
 		this.dead = false;
 		this.accel = 0.5;
 		this.speed = 1;
-		this.health = 10000;
+		this.health = 5000;
 		this.hitbox = 30;
 		this.angle = 0;
 		this.cooldown = 100;
 		this.attack = "none";
-		this.reload = 10;
+		this.reload = 100;
 		this.reloadCooldown = 0;
 		this.stopwaves = true;
 	}
