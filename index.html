@@ -870,7 +870,7 @@
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
 									enemies[i].speed = 5;
 									enemies[i].vX = -Math.sin(enemies[i].angle)*5;
-									enemies[i].vX = -Math.cos(enemies[i].angle)*5;
+									enemies[i].vY = -Math.cos(enemies[i].angle)*5;
 									enemies[i].reloadCooldown = 0;
 									enemies[i].attackLength2 = 50;
 									enemies[i].attack = "charging"
@@ -887,7 +887,6 @@
 								enemies[i].cooldown = 0;
 								if(enemies[i].attackLength2 <= 0) {
 									enemies[i].attack = "charge";
-									enemies[i].behavior = "chaser";
 									enemies[i].speed = 1;
 								}
 							}
