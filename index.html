@@ -818,6 +818,14 @@
 							shapes.closePath();
 						}
 						if(enemies[i].name === "runner boss") {
+							shapes.beginPath();
+							shapes.moveTo(0,380);
+							shapes.lineTo(400,380);
+							shapes.moveTo(400*(enemies[i].health/10000),380);
+							shapes.lineTo(400*(enemies[i].health/10000),400);
+							shapes.stroke();
+							shapes.closePath;
+							
 							let x = enemies[i].xPos;
 							let y = enemies[i].yPos;
 							enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
