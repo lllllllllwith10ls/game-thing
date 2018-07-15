@@ -868,11 +868,11 @@
 								enemies[i].behavior = "line";
 								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
-									enemies[i].speed = 5;
-									enemies[i].vX = -Math.sin(enemies[i].angle)*5;
-									enemies[i].vY = -Math.cos(enemies[i].angle)*5;
+									enemies[i].speed = 10;
+									enemies[i].vX = -Math.sin(enemies[i].angle)*10;
+									enemies[i].vY = -Math.cos(enemies[i].angle)*10;
 									enemies[i].reloadCooldown = 0;
-									enemies[i].attackLength2 = 50;
+									enemies[i].attackLength2 = 200;
 									enemies[i].attack = "charging"
 									enemies[i].attackLength--;
 								}
@@ -880,6 +880,7 @@
 								if(enemies[i].attackLength <= 0) {
 									enemies[i].attack = "none";
 									enemies[i].behavior = "chaser";
+									enemies[i].speed = 1;
 								}
 							}
 							if(enemies[i].attack === "charging") {
