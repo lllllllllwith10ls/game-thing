@@ -60,6 +60,8 @@ const entityUpdate = () => {
 				enemies[i].vX += Math.sin(angle) * enemies[i].accel;
 				enemies[i].vY += Math.cos(angle) * enemies[i].accel;
 			}
+			if(enemies[i].behavior === "line") {
+			}
 			if(enemies[i].behavior === "strafer") {
 				let angle = Math.atan2(player.xPos-enemies[i].xPos,player.yPos-enemies[i].yPos);
 				if(Math.sqrt(Math.pow(enemies[i].xPos-player.xPos,2)+Math.pow(enemies[i].yPos-player.yPos,2)) < 100) {
@@ -351,6 +353,10 @@ class RunnerBoss {
 		this.health = 10000;
 		this.hitbox = 30;
 		this.angle = 0;
+		this.attack = "none";
+		this.reload = 10;
+		this.reloadCooldown = 0;
+		this.stopwaves = true;
 	}
 };
 
