@@ -881,7 +881,6 @@
 							}
 							if(enemies[i].attack === "charging") {
 								enemies[i].reloadCooldown++;
-								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
 								enemies[i].reload = 25;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
 									enemies.push(new Runner(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
