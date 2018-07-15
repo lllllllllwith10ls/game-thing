@@ -839,13 +839,8 @@
 								enemies[i].attackLength = 3;
 								enemies[i].reload = 10;
 								}
-								if(attack <= 2 && attack > 1) {
-								enemies[i].attack = "spawn";
-								enemies[i].attackLength = 200;
-								enemies[i].reload = 50;
-								}
 								enemies[i].cooldown = 0;
-							} else if(enemies[i].cooldown >= 100) {
+							} else if(enemies[i].cooldown >= 200) {
 								var attack = Math.random();
 								
 								if(attack <= 1) {
@@ -853,24 +848,25 @@
 								enemies[i].attackLength = 3;
 								enemies[i].reload = 50;
 								}
-								if(attack <= 2 && attack > 1) {
-								enemies[i].attack = "spawn";
-								enemies[i].attackLength = 200;
-								enemies[i].reload = 50;
-								}
 								enemies[i].cooldown = 0;
 							}
 							if(enemies[i].attack === "none") {
+								enemies[i].reloadCooldown++;
 								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
+								enemies[i].reload = 50;
+								if(enemies[i].reloadCooldown >= enemies[i].reload) {
+									enemies.push(new Runner(x,y,-Math.sin(enemies[i].angle)*3,Math.cos(enemies[i].angle)*3));
+									enemies[i].reloadCooldown = 0;
+								}
 							}
 							if(enemies[i].attack === "charge") {
 								enemies[i].reloadCooldown++;
 								enemies[i].behavior = "line";
 								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos)-Math.PI/2;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
-									enemies[i].speed = 7.5;
-									enemies[i].vX = Math.sin(enemies[i].angle)*7.5;
-									enemies[i].vY = Math.cos(enemies[i].angle)*7.5;
+									enemies[i].speed = 5;
+									enemies[i].vX = Math.sin(enemies[i].angle)*5;
+									enemies[i].vY = Math.cos(enemies[i].angle)*5;
 									enemies[i].reloadCooldown = 0;
 									enemies[i].attackLength2 = 200;
 									enemies[i].attack = "charging"
@@ -891,10 +887,7 @@
 									enemies[i].speed = 1;
 								}
 							}
-							if(enemies[i].attack === "shotgun") {
-								
-
-							}
+							
 							
 							let angle = enemies[i].angle;
 							
