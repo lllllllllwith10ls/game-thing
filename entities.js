@@ -358,6 +358,7 @@ class RunnerBoss {
 		this.reload = 100;
 		this.reloadCooldown = 0;
 		this.stopwaves = true;
+		this.ghost = true;
 	}
 };
 
