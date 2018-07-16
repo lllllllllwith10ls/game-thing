@@ -831,23 +831,19 @@
 							
 							enemies[i].cooldown++;
 							
-							if(enemies[i].health <= 1000 && enemies[i].cooldown >= 5) {
-								var attack = Math.random();
+							if(enemies[i].health <= 2000 && enemies[i].cooldown >= 5) {
 								
-								if(attack <= 1) {
 								enemies[i].attack = "charge";
-								enemies[i].attackLength = 3;
-								enemies[i].reload = 25;
-								}
+								enemies[i].attackLength = Infinity;
+								enemies[i].reload = 10;
+								
 								enemies[i].cooldown = 0;
 							} else if(enemies[i].cooldown >= 200) {
-								var attack = Math.random();
 								
-								if(attack <= 1) {
 								enemies[i].attack = "charge";
-								enemies[i].attackLength = 3;
+								enemies[i].attackLength = 4;
 								enemies[i].reload = 50;
-								}
+								
 								enemies[i].cooldown = 0;
 							}
 							if(enemies[i].attack === "none") {
