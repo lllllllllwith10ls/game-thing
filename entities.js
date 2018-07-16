@@ -319,7 +319,7 @@ class Cross {
 		this.speed = 0.5;
 		this.health = 25+wavenum/20;
 		this.hitbox = 10;
-		this.angle = 0;
+		this.angle = Math.random() * 2 * Math.PI;
 		this.cooldown = 0;
 	}
 };
