@@ -977,7 +977,7 @@
 			}
 			const wave = () => {
 				wavenum++;
-				if(wavenum != 15 && wavenum !== 30 wavenum != 45) {
+				if(wavenum != 15 && wavenum !== 30 && wavenum != 45) {
 					let crashers = Math.random() * 3 + 1;
 					if(wavenum > 10 && wavenum < 30) {
 						crashers -= Math.random() * (wavenum - 10)/10;
@@ -990,7 +990,7 @@
 						enemies.push(new Crasher(Math.random()*400,0,0,0));
 					}
 				}
-				if(wavenum >= 5 && wavenum !== 30 wavenum != 45) {
+				if(wavenum >= 5 && wavenum !== 30 && wavenum !== 45) {
 					let bigCrashers = Math.random() * 2;
 					if(wavenum > 30) {
 						bigCrashers += Math.random() * (wavenum - 30)/75;
@@ -999,7 +999,7 @@
 						enemies.push(new BigCrasher(Math.random()*400,0,0,0));
 					}
 				}
-				if(wavenum >= 10 && wavenum != 15 && wavenum !== 30 wavenum != 45) {
+				if(wavenum >= 10 && wavenum != 15 && wavenum !== 30 && wavenum !== 45) {
 					let splitters = Math.random() * 2;
 					if(wavenum > 30) {
 						splitters += Math.random() * (wavenum - 30)/100;
@@ -1012,7 +1012,7 @@
 					enemies.push(new SpawnerBoss(200,0,0,0));
 					
 				}
-				if(wavenum >= 16 && wavenum !== 30 wavenum != 45) {
+				if(wavenum >= 16 && wavenum !== 30 && wavenum !== 45) {
 					let miniSpawners = Math.random() * 2;
 					if(wavenum > 30) {
 						miniSpawners += Math.random() * (wavenum - 30)/100;
@@ -1021,7 +1021,7 @@
 						enemies.push(new MiniSpawner(Math.random()*400,0,0,0));
 					}
 				}
-				if(wavenum >= 20 && wavenum !== 30 wavenum != 45) {
+				if(wavenum >= 20 && wavenum !== 30 && wavenum !== 45) {
 					let shooters = Math.random() * 2;
 					if(wavenum > 30) {
 						shooters += Math.random() * (wavenum - 30)/200;
@@ -1030,7 +1030,7 @@
 						enemies.push(new Shooter(Math.random()*400,0,0,0));
 					}
 				}
-				if(wavenum >= 25 wavenum != 45) {
+				if(wavenum >= 25 && wavenum !== 45) {
 					let tripleShots = 1;
 					if(wavenum > 30) {
 						tripleShots += Math.random() * (wavenum - 30)/500;
@@ -1043,7 +1043,7 @@
 					enemies.push(new ShooterBoss(200,0,0,0));
 					
 				}
-				if(wavenum >= 31 && wavenum != 45) {
+				if(wavenum >= 31 && wavenum !== 45) {
 					let crosses = 1;
 					if(wavenum > 30) {
 						crosses += Math.random() * (wavenum - 30)/500;
