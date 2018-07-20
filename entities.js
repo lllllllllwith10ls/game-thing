@@ -73,11 +73,19 @@ const entityUpdate = () => {
 				}
 			}
 			if(enemies[i].behavior === "circler") {
-				enemies[i].playerangle += Math.PI/4;
+				enemies[i].playerangle += Math.PI*enemies[i].speed/10;
+				enemies[i].playerradius = Math.sqrt(Math.pow(enemies[i].xPos-player.xPos,2)+Math.pow(enemies[i].yPos-player.yPos,2));
 				let playerangle = enemies[i].playerangle;
-				let angle = Math.atan2(player.xPos+Math.sin(playerangle)*100-enemies[i].xPos,player.xPos+Math.cos(playerangle)*100-enemies[i].yPos);
-				enemies[i].vX += Math.sin(angle) * enemies[i].accel;
-				enemies[i].vY += Math.cos(angle) * enemies[i].accel;
+				enemies[i].vX = 0;
+				enemies[i].vY = 0;
+				enemies[i].playerradius -= enemies[i].speed;
+				if(enemies[i].playerradius < 100) {
+					enemies[i].playerradius = 100;
+				}
+				
+				enemies[i].xPos = player.xPos+Math.sin(playerangle)*enemies[i].playerradius;
+				enemies[i].yPos = player.yPos+Math.cos(playerangle)*enemies[i].playerradius;
+				
 			}
 			
 			enemies[i].xPos += enemies[i].vX;
