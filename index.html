@@ -638,7 +638,7 @@
 							
 							enemies[i].cooldown++;
 							if(enemies[i].health <= 500 && enemies[i].cooldown >= 5) {
-								var attack = Math.random()*3;
+								let attack = Math.random()*3;
 
 								if(attack <= 1) {
 								enemies[i].attack = "spam";
@@ -657,7 +657,7 @@
 								}
 								enemies[i].cooldown = 0;
 							} else if(enemies[i].cooldown >= 25) {
-								var attack = Math.random()*3;
+								let attack = Math.random()*3;
 
 								if(attack <= 1) {
 								enemies[i].attack = "spam";
@@ -839,12 +839,23 @@
 								
 								enemies[i].cooldown = 0;
 							} else if(enemies[i].cooldown >= 200) {
-								
-								enemies[i].attack = "charge";
-								enemies[i].attackLength = 4;
-								enemies[i].reload = 50;
-								
-								enemies[i].cooldown = 0;
+								let attack = Math.random()*2;
+								if(attack < 1) {
+
+									enemies[i].attack = "charge";
+									enemies[i].attackLength = 4;
+									enemies[i].reload = 50;
+
+									enemies[i].cooldown = 0;
+								}
+								if(attack >= 1 && attack < 2) {
+
+									enemies[i].attack = "spawn";
+									enemies[i].attackLength = 4;
+									enemies[i].reload = 10;
+
+									enemies[i].cooldown = 0;
+								}
 							}
 							if(enemies[i].attack === "none") {
 								enemies[i].reloadCooldown++;
@@ -877,7 +888,7 @@
 							}
 							if(enemies[i].attack === "charging") {
 								enemies[i].reloadCooldown++;
-								enemies[i].reload = 25;
+								enemies[i].reload = 10;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
 									enemies.push(new Runner(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
 									enemies[i].reloadCooldown = 0;
@@ -888,6 +899,19 @@
 									enemies[i].attack = "charge";
 									enemies[i].speed = 1;
 									enemies[i].reload = 50;
+								}
+							}
+							if(enemies[i].attack === "spawn") {
+								enemies[i].reloadCooldown++;
+								enemies[i].behavior = "circler";
+								if(enemies[i].reloadCooldown >= enemies[i].reload) {
+									enemies.push(new Runner(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
+									enemies[i].reloadCooldown = 0;
+								}
+								enemies[i].attackLength--;
+								enemies[i].cooldown = 0;
+								if(enemies[i].attackLength <= 0) {
+									enemies[i].attack = "none";
 								}
 							}
 							
