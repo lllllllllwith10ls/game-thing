@@ -853,6 +853,7 @@
 									enemies[i].attack = "spawn";
 									enemies[i].attackLength = 200;
 									enemies[i].reload = 10;
+									enemies[i].playerangle = -Math.atan2(player.xPos-enemies[i].xPos,player.yPos-enemies[i].yPos);
 
 									enemies[i].cooldown = 0;
 								}
