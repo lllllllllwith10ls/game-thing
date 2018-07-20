@@ -835,7 +835,7 @@
 								
 								enemies[i].attack = "charge";
 								enemies[i].attackLength = Infinity;
-								enemies[i].reload = 10;
+								enemies[i].reload = 3;
 								
 								enemies[i].cooldown = 0;
 							} else if(enemies[i].cooldown >= 200) {
@@ -866,6 +866,9 @@
 									enemies[i].vY = Math.cos(enemies[i].angle)*6.25;
 									enemies[i].reloadCooldown = 0;
 									enemies[i].attackLength2 = 100;
+									if(enemies[i].health <= 2000) {
+										enemies[i].attackLength2 = 50;
+									}
 									enemies[i].attack = "charging"
 									enemies[i].attackLength--;
 								}
