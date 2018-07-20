@@ -839,24 +839,13 @@
 								
 								enemies[i].cooldown = 0;
 							} else if(enemies[i].cooldown >= 200) {
-								let attack = Math.random()*2;
-								if(attack < 1) {
 
-									enemies[i].attack = "charge";
-									enemies[i].attackLength = 4;
-									enemies[i].reload = 50;
+								enemies[i].attack = "charge";
+								enemies[i].attackLength = 4;
+								enemies[i].reload = 50;
 
-									enemies[i].cooldown = 0;
-								}
-								if(attack >= 1 && attack < 2) {
-
-									enemies[i].attack = "spawn";
-									enemies[i].attackLength = 200;
-									enemies[i].reload = 10;
-									enemies[i].playerangle = Math.atan2(x-enemies[i].xPos,y-enemies[i].yPos)-Math.PI/2;
-
-									enemies[i].cooldown = 0;
-								}
+								enemies[i].cooldown = 0;
+								
 							}
 							if(enemies[i].attack === "none") {
 								enemies[i].reloadCooldown++;
@@ -889,7 +878,7 @@
 							}
 							if(enemies[i].attack === "charging") {
 								enemies[i].reloadCooldown++;
-								enemies[i].reload = 15;
+								enemies[i].reload = 10;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
 									enemies.push(new Runner(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
 									enemies[i].reloadCooldown = 0;
@@ -900,21 +889,6 @@
 									enemies[i].attack = "charge";
 									enemies[i].speed = 1;
 									enemies[i].reload = 50;
-								}
-							}
-							if(enemies[i].attack === "spawn") {
-								enemies[i].reloadCooldown++;
-								enemies[i].behavior = "circler";
-								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos);
-								if(enemies[i].reloadCooldown >= enemies[i].reload) {
-									enemies.push(new Runner(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
-									enemies[i].reloadCooldown = 0;
-								}
-								enemies[i].attackLength--;
-								enemies[i].cooldown = 0;
-								if(enemies[i].attackLength <= 0) {
-									enemies[i].attack = "none";
-									enemies[i].behavior = "chaser";
 								}
 							}
 							
