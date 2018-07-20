@@ -73,7 +73,7 @@ const entityUpdate = () => {
 				}
 			}
 			if(enemies[i].behavior === "circler") {
-				let this.playerangle = -Math.atan2(player.xPos-enemies[i].xPos,player.yPos-enemies[i].yPos)-Math.PI/2;
+				this.playerangle = -Math.atan2(player.xPos-enemies[i].xPos,player.yPos-enemies[i].yPos)-Math.PI/2;
 				let this.angle = Math.atan2(player.xPos+Math.sin(this.playerangle+Math.PI/10)*100-enemies[i].xPos,player.xPos+Math.cos(this.playerangle)*100-enemies[i].yPos)
 				enemies[i].vX += Math.sin(angle) * enemies[i].accel;
 				enemies[i].vY += Math.cos(angle) * enemies[i].accel;
