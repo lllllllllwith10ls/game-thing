@@ -851,7 +851,7 @@
 								if(attack >= 1 && attack < 2) {
 
 									enemies[i].attack = "spawn";
-									enemies[i].attackLength = 4;
+									enemies[i].attackLength = 200;
 									enemies[i].reload = 10;
 
 									enemies[i].cooldown = 0;
@@ -888,7 +888,7 @@
 							}
 							if(enemies[i].attack === "charging") {
 								enemies[i].reloadCooldown++;
-								enemies[i].reload = 10;
+								enemies[i].reload = 15;
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
 									enemies.push(new Runner(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
 									enemies[i].reloadCooldown = 0;
