@@ -904,6 +904,7 @@
 							if(enemies[i].attack === "spawn") {
 								enemies[i].reloadCooldown++;
 								enemies[i].behavior = "circler";
+								enemies[i].angle = -Math.atan2(y-player.yPos,x-player.xPos);
 								if(enemies[i].reloadCooldown >= enemies[i].reload) {
 									enemies.push(new Runner(x,y,-Math.sin(enemies[i].angle)*3,-Math.cos(enemies[i].angle)*3));
 									enemies[i].reloadCooldown = 0;
