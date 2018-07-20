@@ -832,14 +832,17 @@
 							enemies[i].cooldown++;
 							
 							if(enemies[i].health <= 2000 && enemies[i].cooldown >= 5) {
-								
+								enemies[i].vX = 0;
+								enemies[i].vY = 0;
 								enemies[i].attack = "charge";
 								enemies[i].attackLength = Infinity;
 								enemies[i].reload = 3;
 								
 								enemies[i].cooldown = 0;
 							} else if(enemies[i].cooldown >= 200) {
-
+								enemies[i].vX = 0;
+								enemies[i].vY = 0;
+								
 								enemies[i].attack = "charge";
 								enemies[i].attackLength = 4;
 								enemies[i].reload = 50;
@@ -892,6 +895,11 @@
 									enemies[i].attack = "charge";
 									enemies[i].speed = 1;
 									enemies[i].reload = 50;
+									enemies[i].vX = 0;
+									enemies[i].vY = 0;
+									if(enemies[i].health <= 2000) {
+										enemies[i].reload = 3;
+									}
 								}
 							}
 							
