@@ -8,12 +8,16 @@
 		<p>WASD to move, Click to shoot</p>
 		<p id="lives"></p>
 		<p id="wave number"></p>
+		<button id="hell button" onclick="hell()">Hard mode</button>
 		<script type="text/javascript" src="entities.js"></script>
 		<script>
+			let hellish = false;
 			const startGame = () => {
 				theGame.start();
 			}
-
+			const hell = () => {
+				hellish = true;
+			}
 			let player = {
 				xPos: 200,
 				yPos: 200,
@@ -144,6 +148,10 @@
 					if(enemies[i].stopwaves === true) {
 						wavestop = true;
 					}
+				}
+				if(hellish) {
+					wavestop = true;
+					hell2();
 				}
 				waves++;
 				if(waves > 300 && wavestop === false) {
@@ -1077,6 +1085,20 @@
 					enemies.push(new RunnerBoss(200,0,0,0));
 					
 				}
+				player.damage = wavenum*0.2 + 1;
+				player.reload = Math.pow(19/20,wavenum+1) * 15;
+				if(wavenum % 5 === 0) {
+					player.lives++;
+				}
+			}
+			const hell2 = () => {
+				wavenum++;
+				enemies.push(new SpawnerBoss(Math.random()*400,0,0,0));
+						
+				enemies.push(new ShooterBoss(Math.random()*400,0,0,0));
+					
+				enemies.push(new RunnerBoss(Math.random()*400,0,0,0));
+				
 				player.damage = wavenum*0.2 + 1;
 				player.reload = Math.pow(19/20,wavenum+1) * 15;
 				if(wavenum % 5 === 0) {
